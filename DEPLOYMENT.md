@@ -93,7 +93,7 @@ Your site will be live at: `https://trimity-consultants.vercel.app`
    - **Root Directory:** `./` (leave as is)
    - **Build Command:** `npm run build` (auto-filled)
    - **Output Directory:** `.next` (auto-filled)
-   - **Install Command:** `npm install` (auto-filled)
+   - **Install Command:** `npm install --legacy-peer-deps` (⚠️ IMPORTANT: Change this!)
 
 4. **Environment Variables** (if needed):
    - Click **"Add Environment Variable"**

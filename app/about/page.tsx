@@ -10,7 +10,7 @@ import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
 
 export default function About() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: containerRef })
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
