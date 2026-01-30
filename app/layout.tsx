@@ -1,0 +1,23 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'Trimity Consultants - Engineering Excellence Since 2019',
+  description: 'Comprehensive MEPF consulting services including Plumbing, HVAC, Electrical, and Fire Fighting systems across India.',
+  keywords: 'engineering consultants, MEPF, plumbing, HVAC, electrical, fire fighting, Ahmedabad',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
+}
