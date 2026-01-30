@@ -1,15 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
-        <div className="flex items-center justify-center space-x-2 mb-4">
-          <Building2 className="w-8 h-8 text-primary-400" />
-          <span className="text-2xl font-bold">Trimity Consultants</span>
+        <div className="flex items-center justify-center mb-4">
+          <Image 
+            src="/logo.svg" 
+            alt="Trimity Consultants Logo" 
+            width={200} 
+            height={70}
+            className="h-14 w-auto"
+          />
         </div>
         <p className="text-gray-400 mb-4">
           Engineering Excellence Since 2019

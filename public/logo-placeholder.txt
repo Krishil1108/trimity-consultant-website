@@ -1,0 +1,5 @@
+INSTRUCTIONS: 
+1. Save the Trimity Consultants logo as 'logo.png' in this public folder
+2. The logo should be in PNG format with transparent background
+3. Recommended size: 200x200 pixels or larger
+4. The code has been updated to use /logo.png

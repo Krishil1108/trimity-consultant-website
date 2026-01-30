@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 export default function Navigation() {
@@ -30,12 +30,16 @@ export default function Navigation() {
           <Link href="/">
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2 cursor-pointer"
+              className="flex items-center space-x-3 cursor-pointer"
             >
-              <Building2 className="w-8 h-8 text-primary-600" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-                Trimity Consultants
-              </span>
+              <Image 
+                src="/logo.svg" 
+                alt="Trimity Consultants Logo" 
+                width={160} 
+                height={50}
+                className="h-12 w-auto"
+                priority
+              />
             </motion.div>
           </Link>
           <div className="hidden md:flex space-x-8">

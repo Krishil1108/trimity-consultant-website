@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Trimity Consultants - Engineering Excellence Since 2019',
   description: 'Comprehensive MEPF consulting services including Plumbing, HVAC, Electrical, and Fire Fighting systems across India.',
   keywords: 'engineering consultants, MEPF, plumbing, HVAC, electrical, fire fighting, Ahmedabad',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
