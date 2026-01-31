@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Building2, Target, Rocket, Award } from 'lucide-react'
+import { Building2, Target, Rocket, Award, CheckCircle } from 'lucide-react'
 import { useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -58,6 +58,127 @@ export default function About() {
             </MouseParallax>
           </motion.div>
 
+          {/* Company Overview with Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-16 sm:mb-20"
+          >
+            <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                {[
+                  { number: "21+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
+                  { number: "250+", label: "Projects Delivered", icon: <Building2 className="w-8 h-8" /> },
+                  { number: "100%", label: "Client Satisfaction", icon: <Target className="w-8 h-8" /> }
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="text-center p-6 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 group cursor-pointer"
+                  >
+                    <motion.div
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-4"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {stat.icon}
+                    </motion.div>
+                    <div className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-2">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-600 font-semibold">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="prose prose-lg max-w-none">
+                <motion.h3 
+                  className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 flex items-center"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <span className="w-2 h-8 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-4"></span>
+                  Who We Are
+                </motion.h3>
+                
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-lg"
+                  >
+                    <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India, specializing in comprehensive MEPF design, coordination, and execution.
+                  </motion.p>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="bg-gradient-to-r from-blue-50 to-primary-50 p-6 rounded-2xl border-l-4 border-primary-500"
+                  >
+                    <p className="text-base sm:text-lg">
+                      Since our inception, we have successfully undertaken projects of varying sizes and complexities, providing tailored consulting solutions that meet diverse client needs. With a bold yet adaptable approach to industry trends, we continually integrate the latest technologies and methodologies into our workflow.
+                    </p>
+                  </motion.div>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="text-base sm:text-lg"
+                  >
+                    Our commitment to excellence ensures meticulous attention to every project, regardless of scale, striking the perfect balance between cost-effectiveness and system efficiency. This dedication has earned us the trust and loyalty of our clients, who remain our strongest advocates and a driving force behind new opportunities.
+                  </motion.p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                    {[
+                      "Residential Complexes",
+                      "Industrial Facilities",
+                      "Healthcare Centers",
+                      "Shopping Complexes",
+                      "Mid-Rise Towers",
+                      "Commercial Spaces",
+                      "Hospitality Projects",
+                      "Mixed-Use Developments"
+                    ].map((sector, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05 }}
+                        whileHover={{ x: 5, scale: 1.02 }}
+                        className="flex items-center space-x-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md transition-all"
+                      >
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700 font-medium">{sector}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="text-lg font-semibold text-gray-900 border-t-2 border-primary-200 pt-6"
+                  >
+                    Our mission is to ensure the seamless and successful execution of every project, leaving clients not just satisfied, but confident in the value and reliability of our solutions.
+                  </motion.p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">
             <MouseParallax strength={10}>
               <motion.div
@@ -65,93 +186,61 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <motion.div 
-                  className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{
-                    visible: {
-                      transition: { staggerChildren: 0.1 }
-                    }
-                  }}
-                >
-                  {[
-                    "Trimity Consultants, based in Ahmedabad, proudly delivers expert consulting services across India, specializing in comprehensive MEPF design, coordination, and execution.",
-                    "Since our inception, we have successfully undertaken projects of varying sizes and complexities, providing tailored consulting solutions that meet diverse client needs. With a bold yet adaptable approach to industry trends, we continually integrate the latest technologies and methodologies into our workflow.",
-                    "Our commitment to excellence ensures meticulous attention to every project, regardless of scale, striking the perfect balance between cost-effectiveness and system efficiency. This dedication has earned us the trust and loyalty of our clients, who remain our strongest advocates and a driving force behind new opportunities.",
-                    "At Trimity, innovation and quality define us. We prioritize delivering cost-effective solutions without compromising on excellence, catering to a broad spectrum of sectors including residential, industrial, healthcare, shopping complexes, mid-rise towers, commercial spaces, and hospitality.",
-                    "Our mission is to ensure the seamless and successful execution of every project, leaving clients not just satisfied, but confident in the value and reliability of our solutions."
-                  ].map((text, idx) => (
-                    <motion.p
-                      key={idx}
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0 }
-                      }}
-                      whileHover={{ x: 10, color: 'rgb(55, 65, 81)' }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {text}
-                    </motion.p>
-                  ))}
-                </motion.div>
+                <div className="space-y-6 sm:space-y-8">
 
                 {[
                   { 
-                    icon: <Target className="w-8 h-8" />, 
+                    icon: <Target className="w-10 h-10" />, 
                     title: "Our Vision", 
                     text: "At Trimity Consultants, our vision is to deliver design solutions that not only align perfectly with project requirements but also elevate the standards of our clients. We believe that thriving in the service industry requires an unwavering commitment to exceptional customer service. Our ultimate goal is to become the leading engineering consultancy, offering solutions that are both project-appropriate and client-focused, setting benchmarks for quality and reliability.",
-                    color: "from-blue-500 to-cyan-500"
+                    color: "from-blue-500 to-cyan-500",
+                    gradient: "from-blue-50 to-cyan-50"
                   },
                   { 
-                    icon: <Rocket className="w-8 h-8" />, 
+                    icon: <Rocket className="w-10 h-10" />, 
                     title: "Our Mission", 
                     text: "Our mission is twofold: to consistently provide exceptional services to our clients while driving the growth of Trimity Consultants. With a growing base of satisfied clients, we aim to establish delivery centers across India, expanding the reach and impact of our services. By implementing standardized processes and procedures, we are committed to enhancing the quality and efficiency of the solutions we deliver, ensuring unmatched value for every client.",
-                    color: "from-primary-500 to-blue-600"
+                    color: "from-primary-500 to-blue-600",
+                    gradient: "from-primary-50 to-blue-50"
                   }
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
-                    className="mt-8 p-8 bg-white rounded-2xl shadow-xl border border-gray-100 relative overflow-hidden group"
+                    className="mt-0"
                     initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.2 }}
-                    whileHover={{ 
-                      scale: 1.02,
-                      boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
-                    }}
-                    whileTap={{ scale: 1.01 }}
                   >
-                    <motion.div
-                      className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`}
-                      initial={{ height: 0 }}
-                      whileInView={{ height: '100%' }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.2 + 0.3, duration: 0.6 }}
-                    />
-
-                    <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                    <div className={`p-8 sm:p-10 bg-gradient-to-br ${item.gradient} rounded-3xl shadow-xl border border-gray-100 relative overflow-hidden group hover:shadow-2xl transition-all duration-500`}>
+                      {/* Decorative Elements */}
                       <motion.div
-                        className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${item.color} text-white flex-shrink-0`}
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <div className="scale-75 sm:scale-100">
-                          {item.icon}
+                        className="absolute -top-10 -right-10 w-40 h-40 bg-white/30 rounded-full blur-3xl"
+                        animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+                        transition={{ duration: 10, repeat: Infinity }}
+                      />
+
+                      <div className="relative z-10">
+                        <div className="flex items-start space-x-5 mb-6">
+                          <motion.div
+                            className={`flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br ${item.color} text-white shadow-lg`}
+                            whileHover={{ rotate: 360, scale: 1.1 }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            {item.icon}
+                          </motion.div>
+                          
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                            <div className={`w-20 h-1 bg-gradient-to-r ${item.color} rounded-full`}></div>
+                          </div>
                         </div>
-                      </motion.div>
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">{item.title}</h3>
+
+                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                          {item.text}
+                        </p>
+                      </div>
                     </div>
-
-                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-0 sm:pl-12 md:pl-16">
-                      {item.text}
-                    </p>
-
-                    <motion.div
-                      className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-tl from-primary-100/50 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
                   </motion.div>
                 ))}
               </motion.div>
@@ -163,96 +252,135 @@ export default function About() {
                 initial={{ opacity: 0, x: 60 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="md:sticky md:top-32 space-y-6 sm:space-y-8 mt-8 md:mt-0"
+                className="md:sticky md:top-32 space-y-6 sm:space-y-8"
               >
+                {/* Founder Card */}
                 <motion.div 
-                  className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 relative overflow-hidden group"
-                  whileHover={{ 
-                    scale: 1.03,
-                    rotateY: 3,
-                    boxShadow: "0 30px 60px rgba(0,0,0,0.2)"
-                  }}
-                  whileTap={{ scale: 1.01 }}
+                  className="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-gray-100 relative overflow-hidden group"
+                  whileHover={{ scale: 1.02, y: -5 }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  {/* Animated background gradient */}
+                  {/* Background gradient */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary-50 via-transparent to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-
-                  {/* Decorative corner */}
-                  <motion.div
-                    className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-bl from-primary-200/30 to-transparent rounded-bl-full"
-                    animate={{ rotate: [0, 90, 0] }}
-                    transition={{ duration: 20, repeat: Infinity }}
+                    className="absolute inset-0 bg-gradient-to-br from-primary-50 via-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   />
 
                   <div className="relative z-10">
-                    <motion.h2 
-                      className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      Mr. Ketul Lathia
-                    </motion.h2>
+                    {/* Header */}
+                    <div className="text-center mb-6">
+                      <motion.div
+                        className="inline-block p-1 rounded-full bg-gradient-to-r from-primary-500 to-blue-600 mb-4"
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 1 }}
+                      >
+                        <div className="bg-white rounded-full p-1">
+                          <img 
+                            src="/projects/founder.jpg"
+                            alt="Mr. Ketul Lathia"
+                            className="w-32 h-32 rounded-full object-cover"
+                          />
+                        </div>
+                      </motion.div>
 
-                    <motion.div
-                      className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-lg"
-                      whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
-                    >
-                      IGBC Accredited Professional (IGBC-AP)
-                    </motion.div>
+                      <motion.h2 
+                        className="text-2xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        Mr. Ketul Lathia
+                      </motion.h2>
 
-                    <div className="space-y-4">
+                      <motion.div
+                        className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold shadow-lg mb-6"
+                        whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
+                      >
+                        IGBC Accredited Professional (IGBC-AP)
+                      </motion.div>
+                    </div>
+
+                    {/* Founder Intro */}
+                    <div className="mb-6 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100">
+                      <p className="text-gray-700 leading-relaxed text-center">
+                        <span className="font-semibold text-gray-900">Visionary Founder & Leader</span> of Trimity Consultants with expertise in value engineering, timely project delivery, and client-centric solutions.
+                      </p>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
                       {[
-                        { icon: <Award className="w-6 h-6" />, text: "21+ years in MEPF design and execution" },
-                        { icon: <Building2 className="w-6 h-6" />, text: "250+ projects successfully delivered" },
-                        { icon: <Target className="w-6 h-6" />, text: "Specialized in sustainable building practices" }
-                      ].map((item, idx) => (
+                        { icon: <Award className="w-6 h-6" />, value: "21+", label: "Years" },
+                        { icon: <Building2 className="w-6 h-6" />, value: "250+", label: "Projects" },
+                        { icon: <Target className="w-6 h-6" />, value: "13+", label: "Consulting" }
+                      ].map((stat, idx) => (
                         <motion.div
                           key={idx}
-                          className="flex items-center space-x-3 p-4 rounded-xl bg-gradient-to-r from-gray-50 to-transparent group/item"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{ delay: idx * 0.1 }}
-                          whileHover={{ 
-                            x: 10, 
-                            backgroundColor: 'rgba(59, 130, 246, 0.05)'
-                          }}
+                          whileHover={{ scale: 1.1, y: -5 }}
+                          className="text-center p-4 rounded-xl bg-gradient-to-br from-primary-50 to-blue-50 group/stat cursor-pointer"
                         >
                           <motion.div
-                            className="p-2 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 text-white"
+                            className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-2"
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.5 }}
                           >
-                            {item.icon}
+                            {stat.icon}
                           </motion.div>
-                          <span className="text-gray-700 group-hover/item:text-gray-900 transition-colors font-medium">
-                            {item.text}
+                          <div className="text-2xl font-bold text-primary-600">{stat.value}</div>
+                          <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Key Highlights */}
+                    <div className="space-y-3">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <span className="w-1 h-5 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-3"></span>
+                        Leadership Excellence
+                      </h4>
+                      {[
+                        "Expert in MEPF design & execution across diverse sectors",
+                        "Strong focus on effective communication & team collaboration",
+                        "Hands-on involvement in design workflows & quality control",
+                        "Member of Indian Plumbing & Fire Safety Associations",
+                        "Committed to sustainable building practices (IGBC-AP)"
+                      ].map((item, idx) => (
+                        <motion.div
+                          key={idx}
+                          className="flex items-start space-x-3 p-3 rounded-xl bg-gradient-to-r from-gray-50 to-transparent hover:from-primary-50 hover:to-transparent transition-all group/item"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.05 }}
+                          whileHover={{ x: 5 }}
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-gray-700 group-hover/item:text-gray-900 transition-colors">
+                            {item}
                           </span>
                         </motion.div>
                       ))}
                     </div>
 
-                    <motion.p 
-                      className="mt-6 text-gray-600 leading-relaxed"
+                    {/* Quote */}
+                    <motion.div
+                      className="mt-6 p-6 rounded-2xl bg-gradient-to-r from-primary-500 to-blue-600 text-white relative overflow-hidden"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.4 }}
                     >
-                      With more than two decades of expertise in the industry and a proven track record 
-                      of delivering over 250 projects, Mr. Lathia founded Trimity Consultants 13+ years 
-                      ago, driven by a commitment to providing innovative and sustainable engineering 
-                      solutions. Under his leadership, Trimity continues to set new benchmarks in MEPF 
-                      consulting excellence.
-                    </motion.p>
+                      <div className="absolute top-0 left-0 text-8xl opacity-10 font-serif">"</div>
+                      <p className="relative z-10 text-sm sm:text-base leading-relaxed italic">
+                        Under his technically proficient and dynamic leadership, Team Trimity continues to exceed industry expectations, delivering excellence at every step.
+                      </p>
+                    </motion.div>
                   </div>
                 </motion.div>
 
+                {/* Company Image */}
                 <motion.div
-                  whileHover={{ scale: 1.02, rotateY: 2 }}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  whileHover={{ scale: 1.02, y: -5 }}
                   className="rounded-3xl overflow-hidden shadow-2xl"
                 >
                   <img 

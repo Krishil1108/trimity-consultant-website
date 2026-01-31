@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Droplets, Zap, Wind, Flame, CheckCircle } from 'lucide-react'
+import { Droplets, Zap, Wind, Flame, CheckCircle, Rocket, Building2 } from 'lucide-react'
 import { useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -148,39 +148,39 @@ export default function Services() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="space-y-8 sm:space-y-10 md:space-y-12"
+            className="space-y-12 sm:space-y-16 md:space-y-20"
           >
             {services.map((service, index) => (
-              <MouseParallax key={index} strength={5 + index * 2}>
-                <motion.div
-                  variants={fadeInUp}
-                  whileHover={{ 
-                    scale: 1.02,
-                    rotateY: 2,
-                    boxShadow: "0 30px 60px rgba(0,0,0,0.15)"
-                  }}
-                  whileTap={{ scale: 1.01 }}
-                  style={{ transformStyle: 'preserve-3d' }}
-                  className="group"
-                >
-                  <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative">
-                    {/* Animated corner glow */}
-                    <motion.div
-                      className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 opacity-0 group-hover:opacity-30 blur-3xl transition-opacity"
-                      style={{
-                        background: `linear-gradient(to bottom right, ${service.color.replace('from-', 'rgb(')}, transparent)`
-                      }}
-                    />
+              <div key={index}>
+                <MouseParallax strength={5 + index * 2}>
+                  <motion.div
+                    variants={fadeInUp}
+                    whileHover={{ 
+                      scale: 1.01,
+                      boxShadow: "0 30px 60px rgba(0,0,0,0.15)"
+                    }}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    className="group"
+                  >
+                    <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative">
+                      {/* Animated corner glow */}
+                      <motion.div
+                        className={`absolute top-0 right-0 w-64 h-64 opacity-0 group-hover:opacity-20 blur-3xl transition-opacity`}
+                        style={{
+                          background: `linear-gradient(to bottom right, ${service.color.includes('green') ? '#10b981' : service.color.includes('yellow') ? '#f59e0b' : service.color.includes('blue') ? '#3b82f6' : '#ef4444'}, transparent)`
+                        }}
+                      />
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
                     {/* Icon & Title Section */}
                     <motion.div 
-                      className={`p-6 sm:p-8 md:p-10 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}
-                      whileHover={{ scale: 1.05 }}
+                      className={`p-8 sm:p-10 md:p-12 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}
+                      whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.3 }}
                     >
+                      {/* Animated pattern background */}
                       <motion.div
-                        className="absolute inset-0 opacity-20"
+                        className="absolute inset-0 opacity-10"
                         animate={{
                           backgroundPosition: ['0% 0%', '100% 100%'],
                         }}
@@ -190,42 +190,68 @@ export default function Services() {
                           repeatType: 'reverse',
                         }}
                         style={{
-                          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                          backgroundSize: '30px 30px',
+                          backgroundImage: 'radial-gradient(circle, white 2px, transparent 2px)',
+                          backgroundSize: '40px 40px',
                         }}
                       />
                       
                       <div className="relative z-10">
                         <motion.div 
-                          className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 sm:mb-6"
+                          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 shadow-2xl"
                           whileHover={{ rotate: 360, scale: 1.15 }}
                           transition={{ duration: 0.6 }}
                         >
-                          <div className="scale-75 sm:scale-90 md:scale-100">
+                          <div className="scale-90 sm:scale-100">
                             {service.icon}
                           </div>
                         </motion.div>
                         
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
                           {service.title}
                         </h2>
-                        <h3 className="text-sm sm:text-base md:text-lg font-semibold opacity-90 mb-3 sm:mb-4">
+                        
+                        <div className="w-16 h-1 bg-white/50 rounded-full mb-4"></div>
+                        
+                        <h3 className="text-base sm:text-lg md:text-xl font-semibold opacity-90 mb-4">
                           {service.subtitle}
                         </h3>
-                        <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+                        
+                        <p className="text-sm sm:text-base md:text-lg text-white/95 leading-relaxed">
                           {service.description}
                         </p>
+
+                        {/* Decorative element */}
+                        <div className="mt-6 flex items-center space-x-2">
+                          <div className="flex space-x-1">
+                            {[...Array(3)].map((_, i) => (
+                              <motion.div
+                                key={i}
+                                className="w-2 h-2 bg-white/40 rounded-full"
+                                animate={{ scale: [1, 1.5, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                              />
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
 
                     {/* Features Section */}
-                    <div className="md:col-span-2 p-6 sm:p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white">
-                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
-                        <span className="w-1 h-5 sm:h-6 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-2 sm:mr-3"></span>
-                        Our Expertise
-                      </h4>
+                    <div className="md:col-span-2 p-8 sm:p-10 md:p-12 bg-gradient-to-br from-gray-50 to-white">
+                      <div className="flex items-center justify-between mb-6">
+                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
+                          <span className="w-2 h-8 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-4"></span>
+                          Our Expertise
+                        </h4>
+                        <motion.div
+                          className={`px-4 py-2 rounded-full bg-gradient-to-r ${service.color} text-white text-sm font-semibold shadow-lg`}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          {service.features.length} Services
+                        </motion.div>
+                      </div>
                       
-                      <div className="grid gap-3 sm:gap-4">
+                      <div className="grid gap-4">
                         {service.features.map((feature, idx) => (
                           <motion.div
                             key={idx}
@@ -233,55 +259,121 @@ export default function Services() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.05 }}
-                            whileHover={{ x: 10, scale: 1.02 }}
-                            className="flex items-start space-x-2 sm:space-x-3 p-3 sm:p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 group/item"
+                            whileHover={{ x: 8, scale: 1.01 }}
+                            className="flex items-start space-x-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item border border-transparent hover:border-gray-100"
                           >
                             <motion.div
-                              whileHover={{ rotate: 360 }}
+                              whileHover={{ rotate: 360, scale: 1.2 }}
                               transition={{ duration: 0.5 }}
-                              className="flex-shrink-0"
+                              className="flex-shrink-0 mt-1"
                             >
-                              <CheckCircle className={`w-5 h-5 sm:w-6 sm:h-6 mt-0.5 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
+                              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center shadow-md`}>
+                                <CheckCircle className="w-5 h-5 text-white" />
+                              </div>
                             </motion.div>
-                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors">
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors flex-1">
                               {feature}
                             </p>
                           </motion.div>
                         ))}
                       </div>
+
+                      {/* Decorative bottom element */}
+                      <motion.div
+                        className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary-50 to-blue-50 border-l-4 border-primary-500"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                      >
+                        <p className="text-sm text-gray-700 italic">
+                          💡 All services are tailored to meet specific project requirements and comply with local and international standards
+                        </p>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
               </motion.div>
             </MouseParallax>
+
+            {/* Section Divider */}
+            {index < services.length - 1 && (
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center justify-center my-12"
+              >
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                <motion.div
+                  className={`mx-4 p-3 rounded-full bg-gradient-to-br ${service.color} shadow-lg`}
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {services[(index + 1) % services.length].icon}
+                </motion.div>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+              </motion.div>
+            )}
+          </div>
             ))}
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-20 sm:py-24 md:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <motion.div
+              className="inline-block mb-6"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <Rocket className="w-16 h-16 text-white" />
+            </motion.div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl text-primary-100 mb-8">
-              Let our experts help you design efficient, safe, and sustainable systems for your next project
+            <p className="text-lg sm:text-xl text-primary-100 mb-10 leading-relaxed max-w-2xl mx-auto">
+              Let our experts help you design efficient, safe, and sustainable MEPF systems for your next project. We're here to turn your vision into reality.
             </p>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-white text-primary-600 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-            >
-              Contact Us Today
-            </motion.a>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-xl font-semibold shadow-2xl hover:shadow-white/20 transition-all"
+              >
+                Contact Us Today
+                <Rocket className="ml-2 w-5 h-5" />
+              </motion.a>
+
+              <motion.a
+                href="/projects"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-semibold hover:bg-white/20 transition-all"
+              >
+                View Our Projects
+                <Building2 className="ml-2 w-5 h-5" />
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </section>
