@@ -6,37 +6,37 @@ export default function Projects() {
   const projects = [
     {
       title: "Bungalows",
-      image: "/api/placeholder/800/600",
+      image: "/projects/bungalows.jpg",
       category: "Residential"
     },
     {
       title: "Mixed Use",
-      image: "/api/placeholder/800/600",
+      image: "/projects/mixed-use-1.jpg",
       category: "Commercial"
     },
     {
       title: "Mixed Use Development",
-      image: "/api/placeholder/800/600",
+      image: "/projects/mixed-use-2.jpg",
       category: "Commercial"
     },
     {
       title: "Hotels and Hospitals",
-      image: "/api/placeholder/800/600",
+      image: "/projects/mixed-use-1.jpg",
       category: "Healthcare & Hospitality"
     },
     {
       title: "Industrial Projects",
-      image: "/api/placeholder/800/600",
+      image: "/projects/industrial-1.jpg",
       category: "Industrial"
     },
     {
       title: "Residential Projects",
-      image: "/api/placeholder/800/600",
+      image: "/projects/residential.jpg",
       category: "Residential"
     },
     {
       title: "Commercial Projects",
-      image: "/api/placeholder/800/600",
+      image: "/projects/mixed-use-2.jpg",
       category: "Commercial"
     }
   ]
