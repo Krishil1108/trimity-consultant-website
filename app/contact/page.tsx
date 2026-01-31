@@ -44,7 +44,7 @@ export default function Contact() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden relative">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden relative">
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{
@@ -72,17 +72,17 @@ export default function Contact() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-block mb-6"
+              className="inline-block mb-4 sm:mb-6"
             >
-              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <Send className="w-12 h-12" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <Send className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
               </div>
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">
               Get In Touch
             </h1>
-            <p className="text-xl text-primary-100 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-primary-100 max-w-2xl mx-auto px-4">
               Let's discuss your project requirements and explore how we can help bring your vision to life
             </p>
           </motion.div>
@@ -90,9 +90,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Cards */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-16 relative z-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {contactInfo.map((item, index) => (
               <motion.div
                 key={index}
