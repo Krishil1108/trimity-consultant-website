@@ -62,9 +62,9 @@ export default function Home() {
         </div>
 
         {/* Content Overlay */}
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -72,14 +72,14 @@ export default function Home() {
             >
               <MouseParallax strength={15}>
                 <motion.h1 
-                  className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-4 sm:mb-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
                   Welcome to{' '}
                   <motion.span 
-                    className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent"
+                    className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent block sm:inline"
                     animate={{
                       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                     }}
@@ -92,7 +92,7 @@ export default function Home() {
               </MouseParallax>
 
               <motion.p 
-                className="text-xl text-gray-600 mb-8 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -104,19 +104,19 @@ export default function Home() {
               </motion.p>
 
               <motion.div 
-                className="flex flex-wrap gap-4"
+                className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                <Link href="/services">
+                <Link href="/services" className="w-full sm:w-auto">
                   <motion.div
                     whileHover={{ 
                       scale: 1.05, 
                       boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-semibold flex items-center space-x-2 shadow-lg cursor-pointer overflow-hidden group"
+                    className="relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-semibold flex items-center justify-center space-x-2 shadow-lg cursor-pointer overflow-hidden group text-sm sm:text-base"
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-800"
@@ -125,10 +125,10 @@ export default function Home() {
                       transition={{ duration: 0.3 }}
                     />
                     <span className="relative z-10">Explore Services</span>
-                    <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
                   </motion.div>
                 </Link>
-                <Link href="/contact">
+                <Link href="/contact" className="w-full sm:w-auto">
                   <motion.div
                     whileHover={{ 
                       scale: 1.05,
@@ -136,7 +136,7 @@ export default function Home() {
                       backgroundColor: "rgba(59, 130, 246, 0.1)"
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 border-2 border-primary-600 text-primary-600 rounded-xl font-semibold transition-all cursor-pointer"
+                    className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-primary-600 text-primary-600 rounded-xl font-semibold transition-all cursor-pointer text-center text-sm sm:text-base"
                   >
                     Contact Us
                   </motion.div>
@@ -145,7 +145,7 @@ export default function Home() {
 
               {/* Service Icons Row */}
               <motion.div 
-                className="flex gap-4 mt-8"
+                className="flex gap-3 sm:gap-4 mt-6 sm:mt-8 overflow-x-auto pb-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
@@ -155,7 +155,7 @@ export default function Home() {
                     key={idx}
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className={`w-14 h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg`}
+                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg flex-shrink-0`}
                     title={service.title}
                   >
                     {service.icon}
@@ -268,13 +268,13 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         {/* Background Elements */}
         <AnimatedGrid />
         <ParticleField />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -286,7 +286,8 @@ export default function Home() {
                   scale: 1.05,
                   boxShadow: "0 25px 50px rgba(59, 130, 246, 0.2)"
                 }}
-                className="relative group text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden"
+                whileTap={{ scale: 0.98 }}
+                className="relative group text-center p-6 sm:p-8 rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -297,13 +298,15 @@ export default function Home() {
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="inline-block p-3 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-4">
-                    {stat.icon}
+                  <div className="inline-block p-2 sm:p-3 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-3 sm:mb-4">
+                    <div className="scale-75 sm:scale-100">
+                      {stat.icon}
+                    </div>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-2"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-2"
                   initial={{ scale: 1 }}
                   whileInView={{ scale: [1, 1.2, 1] }}
                   viewport={{ once: true }}
@@ -311,11 +314,11 @@ export default function Home() {
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-gray-600 font-medium text-sm sm:text-base">{stat.label}</div>
 
                 {/* Animated corner accent */}
                 <motion.div
-                  className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 opacity-10 rounded-bl-full"
+                  className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary-400 to-primary-600 opacity-10 rounded-bl-full"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                 />
@@ -326,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-primary-50/30 to-gray-50" />
         
         {/* Animated background elements */}
@@ -351,7 +354,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-gray-900 via-primary-800 to-gray-900 bg-clip-text text-transparent"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-10 md:mb-12 bg-gradient-to-r from-gray-900 via-primary-800 to-gray-900 bg-clip-text text-transparent px-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -359,28 +362,28 @@ export default function Home() {
             Explore Our Expertise
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               { 
                 href: "/projects", 
                 title: "Our Projects", 
                 desc: "Explore our diverse portfolio of successful engineering projects",
                 gradient: "from-blue-500 to-cyan-500",
-                icon: <Building2 className="w-8 h-8" />
+                icon: <Building2 className="w-6 h-6 sm:w-8 sm:h-8" />
               },
               { 
                 href: "/services", 
                 title: "What We Provide", 
                 desc: "Discover our comprehensive MEPF consulting services",
                 gradient: "from-primary-500 to-blue-600",
-                icon: <Zap className="w-8 h-8" />
+                icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />
               },
               { 
                 href: "/about", 
                 title: "Know More About Us", 
                 desc: "Learn about our vision, mission, and leadership",
                 gradient: "from-primary-600 to-primary-800",
-                icon: <Flame className="w-8 h-8" />
+                icon: <Flame className="w-6 h-6 sm:w-8 sm:h-8" />
               }
             ].map((link, idx) => (
               <Link key={idx} href={link.href}>
@@ -394,7 +397,8 @@ export default function Home() {
                     scale: 1.03,
                     rotateY: 5,
                   }}
-                  className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden h-full"
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden h-full"
                   style={{ transformStyle: 'preserve-3d' }}
                 >
                   {/* Gradient overlay on hover */}
@@ -404,31 +408,31 @@ export default function Home() {
 
                   {/* Icon */}
                   <motion.div
-                    className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${link.gradient} text-white mb-6 shadow-lg`}
+                    className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${link.gradient} text-white mb-4 sm:mb-6 shadow-lg`}
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
                     {link.icon}
                   </motion.div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-primary-600 transition-colors">
                     {link.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                     {link.desc}
                   </p>
 
                   {/* Arrow indicator */}
                   <motion.div
-                    className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100"
+                    className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 opacity-0 group-hover:opacity-100"
                     initial={{ x: -10 }}
                     whileHover={{ x: 0 }}
                   >
-                    <ArrowRight className="w-6 h-6 text-primary-600" />
+                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />
                   </motion.div>
 
                   {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100/50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-primary-100/50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               </Link>
             ))}
@@ -437,7 +441,7 @@ export default function Home() {
       </section>
 
       {/* Location Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         {/* Animated grid background */}
         <div className="absolute inset-0 opacity-5">
           <svg className="w-full h-full">
@@ -458,16 +462,16 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="inline-block mb-8"
+              className="inline-block mb-6 sm:mb-8"
               whileHover={{ scale: 1.1, rotate: 360 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-xl">
-                <Building2 className="w-10 h-10 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-xl">
+                <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 px-4">
               <motion.span
                 className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-600 bg-clip-text text-transparent"
                 animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
@@ -480,10 +484,11 @@ export default function Home() {
 
             <MouseParallax strength={10}>
               <motion.div 
-                className="inline-block bg-white rounded-2xl p-8 shadow-2xl border border-gray-100 max-w-2xl"
+                className="inline-block bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-100 max-w-2xl mx-4 sm:mx-auto"
                 whileHover={{ scale: 1.05, boxShadow: "0 30px 60px rgba(0,0,0,0.15)" }}
+                whileTap={{ scale: 1.02 }}
               >
-                <div className="space-y-3 text-lg text-gray-700">
+                <div className="space-y-2 sm:space-y-3 text-base sm:text-lg text-gray-700">
                   <motion.p 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -531,7 +536,7 @@ export default function Home() {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg font-semibold shadow-lg cursor-pointer"
+                      className="inline-flex items-center space-x-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg font-semibold shadow-lg cursor-pointer text-sm sm:text-base"
                     >
                       <span>Get in Touch</span>
                       <ArrowRight className="w-4 h-4" />
