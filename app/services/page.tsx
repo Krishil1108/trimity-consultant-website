@@ -30,63 +30,52 @@ export default function Services() {
       icon: <Wind className="w-12 h-12" />,
       title: "Mechanical Service",
       subtitle: "HVAC Consulting",
-      description: "We offer HVAC system consultancy service with consideration of safety, norms, environment benefits, as well as functional comfort.",
+      description: "Comprehensive HVAC system design and consultancy for optimal comfort, safety, and energy efficiency.",
       color: "from-green-500 to-emerald-500",
       features: [
-        "Consulting on required systems with respect to client and project requirements",
-        "System adoption consulting aligned with building function and space criteria",
-        "Heating and air conditioning system design focused on user comfort",
-        "Ventilation system design for toilets, kitchens, laundry, and sewage treatment plants",
-        "Pressurization of lift wells and staircases as per fire fighting norms",
-        "Basement ventilation systems meeting fire safety requirements",
-        "Strategic space planning for future air conditioning systems"
+        "Custom HVAC system design & consulting",
+        "Air conditioning & heating solutions",
+        "Ventilation for all building areas",
+        "Basement & stairwell pressurization"
       ]
     },
     {
       icon: <Zap className="w-12 h-12" />,
       title: "Electrical Services",
-      subtitle: "Electrical and Extra Low Voltage Consulting",
-      description: "Comprehensive electrical design solutions ensuring safety, efficiency, and compliance with latest standards.",
+      subtitle: "Power & Low Voltage Systems",
+      description: "Complete electrical design services from power distribution to smart building integration.",
       color: "from-yellow-500 to-orange-500",
       features: [
-        "Electrical service design consulting tailored to client and project needs",
-        "Space planning for transformers and DG sets per local norms and service providers",
-        "Load requirement calculation and efficient load balancing",
-        "Electrical load distribution and panel design consulting",
-        "Building safety provisions including lightning arrestors and earthing pits",
-        "Interior lighting and power distribution using latest trends",
-        "Smoke detectors, fire alarms, CCTV, and internet services integration"
+        "Electrical load calculation & distribution",
+        "Transformer & DG set planning",
+        "Lighting design & power systems",
+        "Fire alarms, CCTV & security integration"
       ]
     },
     {
       icon: <Droplets className="w-12 h-12" />,
       title: "Plumbing Services",
-      subtitle: "Plumbing Consulting",
-      description: "Expert plumbing solutions from water supply to sewage disposal, ensuring efficient and sustainable systems.",
+      subtitle: "Water & Drainage Systems",
+      description: "Sustainable plumbing solutions covering water supply, sewage management, and treatment systems.",
       color: "from-blue-500 to-cyan-500",
       features: [
-        "Water supply and sewage disposal scheme consulting",
-        "Water storage to distribution planning aligned with building function",
-        "Sewage collection network to disposal methodology consulting",
-        "Sewage Treatment Plant planning and design",
-        "Rainwater harvesting system integration",
-        "Water treatment planning and implementation",
-        "Sustainable plumbing solutions for optimal resource management"
+        "Water supply & distribution design",
+        "Sewage collection & disposal systems",
+        "Sewage Treatment Plant (STP) design",
+        "Rainwater harvesting solutions"
       ]
     },
     {
       icon: <Flame className="w-12 h-12" />,
       title: "Fire Fighting Services",
-      subtitle: "FFTG Consulting",
-      description: "Comprehensive fire safety consulting ensuring compliance with local and international standards.",
+      subtitle: "Fire Safety & Protection",
+      description: "Complete fire safety consulting with NBC compliance and advanced detection systems.",
       color: "from-red-500 to-pink-500",
       features: [
-        "Fire fighting system consulting per local norms and standard regulations",
-        "Detailed fire fighting requirement assessment",
-        "Custom fire fighting system design and planning",
-        "Project-specific safety solution development",
-        "Compliance with NBC and local fire safety codes",
-        "Integration of sprinkler, hydrant, and detection systems"
+        "Fire safety system design & consulting",
+        "NBC & local code compliance",
+        "Sprinkler & hydrant systems",
+        "Fire detection & alarm integration"
       ]
     }
   ]
@@ -127,195 +116,112 @@ export default function Services() {
               </motion.div>
 
               <motion.h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-4"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
                 transition={{ duration: 5, repeat: Infinity }}
               >
-                What We Provide
+                Our Services
               </motion.h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-                Comprehensive MEPF solutions delivered by experienced professionals. 
-                We deliver unified solutions through our trusted associates in electrical, HVAC, 
-                plumbing, and fire-fighting systems.
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+                Comprehensive MEPF engineering solutions for modern infrastructure
               </p>
             </MouseParallax>
           </motion.div>
 
-          {/* Services Grid */}
+          {/* Services Grid - Compact Layout */}
           <motion.div 
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="space-y-12 sm:space-y-16 md:space-y-20"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
           >
             {services.map((service, index) => (
-              <div key={index}>
-                <MouseParallax strength={5 + index * 2}>
-                  <motion.div
-                    variants={fadeInUp}
-                    whileHover={{ 
-                      scale: 1.01,
-                      boxShadow: "0 30px 60px rgba(0,0,0,0.15)"
-                    }}
-                    style={{ transformStyle: 'preserve-3d' }}
-                    className="group"
-                  >
-                    <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative">
-                      {/* Animated corner glow */}
-                      <motion.div
-                        className={`absolute top-0 right-0 w-64 h-64 opacity-0 group-hover:opacity-20 blur-3xl transition-opacity`}
-                        style={{
-                          background: `linear-gradient(to bottom right, ${service.color.includes('green') ? '#10b981' : service.color.includes('yellow') ? '#f59e0b' : service.color.includes('blue') ? '#3b82f6' : '#ef4444'}, transparent)`
-                        }}
-                      />
+              <MouseParallax key={index} strength={3}>
+                <motion.div
+                  variants={fadeInUp}
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -5,
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.12)"
+                  }}
+                  className="group h-full"
+                >
+                  <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative h-full flex flex-col">
+                    {/* Animated corner glow */}
+                    <motion.div
+                      className={`absolute top-0 right-0 w-48 h-48 opacity-0 group-hover:opacity-20 blur-3xl transition-opacity`}
+                      style={{
+                        background: `linear-gradient(to bottom right, ${service.color.includes('green') ? '#10b981' : service.color.includes('yellow') ? '#f59e0b' : service.color.includes('blue') ? '#3b82f6' : '#ef4444'}, transparent)`
+                      }}
+                    />
 
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
-                    {/* Icon & Title Section */}
-                    <motion.div 
-                      className={`p-8 sm:p-10 md:p-12 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* Animated pattern background */}
+                    {/* Header Section */}
+                    <div className={`p-8 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}>
                       <motion.div
                         className="absolute inset-0 opacity-10"
-                        animate={{
-                          backgroundPosition: ['0% 0%', '100% 100%'],
-                        }}
-                        transition={{
-                          duration: 20,
-                          repeat: Infinity,
-                          repeatType: 'reverse',
-                        }}
                         style={{
-                          backgroundImage: 'radial-gradient(circle, white 2px, transparent 2px)',
-                          backgroundSize: '40px 40px',
+                          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                          backgroundSize: '30px 30px',
                         }}
                       />
                       
-                      <div className="relative z-10">
+                      <div className="relative z-10 flex items-start space-x-4">
                         <motion.div 
-                          className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 shadow-2xl"
+                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg flex-shrink-0"
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="scale-90 sm:scale-100">
-                            {service.icon}
-                          </div>
+                          {service.icon}
                         </motion.div>
                         
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-                          {service.title}
-                        </h2>
-                        
-                        <div className="w-16 h-1 bg-white/50 rounded-full mb-4"></div>
-                        
-                        <h3 className="text-base sm:text-lg md:text-xl font-semibold opacity-90 mb-4">
-                          {service.subtitle}
-                        </h3>
-                        
-                        <p className="text-sm sm:text-base md:text-lg text-white/95 leading-relaxed">
-                          {service.description}
-                        </p>
-
-                        {/* Decorative element */}
-                        <div className="mt-6 flex items-center space-x-2">
-                          <div className="flex space-x-1">
-                            {[...Array(3)].map((_, i) => (
-                              <motion.div
-                                key={i}
-                                className="w-2 h-2 bg-white/40 rounded-full"
-                                animate={{ scale: [1, 1.5, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                              />
-                            ))}
-                          </div>
+                        <div className="flex-1">
+                          <h2 className="text-xl sm:text-2xl font-bold mb-1">
+                            {service.title}
+                          </h2>
+                          <h3 className="text-sm sm:text-base font-semibold opacity-90">
+                            {service.subtitle}
+                          </h3>
                         </div>
                       </div>
-                    </motion.div>
+                      
+                      <p className="relative z-10 mt-4 text-sm sm:text-base text-white/95 leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
 
                     {/* Features Section */}
-                    <div className="md:col-span-2 p-8 sm:p-10 md:p-12 bg-gradient-to-br from-gray-50 to-white">
-                      <div className="flex items-center justify-between mb-6">
-                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
-                          <span className="w-2 h-8 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-4"></span>
-                          Our Expertise
-                        </h4>
-                        <motion.div
-                          className={`px-4 py-2 rounded-full bg-gradient-to-r ${service.color} text-white text-sm font-semibold shadow-lg`}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          {service.features.length} Services
-                        </motion.div>
-                      </div>
+                    <div className="p-6 sm:p-8 bg-gradient-to-br from-gray-50 to-white flex-1">
+                      <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-4 flex items-center">
+                        <span className="w-1.5 h-6 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-3"></span>
+                        Key Services
+                      </h4>
                       
-                      <div className="grid gap-4">
+                      <div className="space-y-3">
                         {service.features.map((feature, idx) => (
                           <motion.div
                             key={idx}
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.05 }}
-                            whileHover={{ x: 8, scale: 1.01 }}
-                            className="flex items-start space-x-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item border border-transparent hover:border-gray-100"
+                            transition={{ delay: idx * 0.03 }}
+                            whileHover={{ x: 5 }}
+                            className="flex items-start space-x-3 p-3 rounded-xl hover:bg-white hover:shadow-md transition-all duration-200 group/item"
                           >
-                            <motion.div
-                              whileHover={{ scale: 1.1 }}
-                              transition={{ duration: 0.3 }}
-                              className="flex-shrink-0 mt-1"
-                            >
-                              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center shadow-md`}>
-                                <CheckCircle className="w-5 h-5 text-white" />
-                              </div>
-                            </motion.div>
-                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors flex-1">
+                            <div className={`w-6 h-6 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center shadow-sm flex-shrink-0 mt-0.5`}>
+                              <CheckCircle className="w-4 h-4 text-white" />
+                            </div>
+                            <p className="text-sm text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors">
                               {feature}
                             </p>
                           </motion.div>
                         ))}
                       </div>
-
-                      {/* Decorative bottom element */}
-                      <motion.div
-                        className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary-50 to-blue-50 border-l-4 border-primary-500"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                      >
-                        <p className="text-sm text-gray-700 italic">
-                          💡 All services are tailored to meet specific project requirements and comply with local and international standards
-                        </p>
-                      </motion.div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </MouseParallax>
-
-            {/* Section Divider */}
-            {index < services.length - 1 && (
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="flex items-center justify-center my-12"
-              >
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-                <motion.div
-                  className={`mx-4 p-3 rounded-full bg-gradient-to-br ${service.color} shadow-lg`}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {services[(index + 1) % services.length].icon}
                 </motion.div>
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-              </motion.div>
-            )}
-          </div>
+              </MouseParallax>
             ))}
           </motion.div>
         </div>

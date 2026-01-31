@@ -24,18 +24,31 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
-  const stats = [
-    { number: "250+", label: "Projects Completed", icon: <Building2 className="w-8 h-8" /> },
-    { number: "21+", label: "Years Experience", icon: <Zap className="w-8 h-8" /> },
-    { number: "100%", label: "Client Satisfaction", icon: <Flame className="w-8 h-8" /> },
-    { number: "13+", label: "Years Consulting", icon: <Droplets className="w-8 h-8" /> }
-  ]
-
   const services = [
-    { icon: <Wind className="w-12 h-12" />, title: "HVAC", color: "from-green-400 to-emerald-500" },
-    { icon: <Zap className="w-12 h-12" />, title: "Electrical", color: "from-yellow-400 to-orange-500" },
-    { icon: <Droplets className="w-12 h-12" />, title: "Plumbing", color: "from-blue-400 to-cyan-500" },
-    { icon: <Flame className="w-12 h-12" />, title: "Fire Fighting", color: "from-red-400 to-pink-500" }
+    { 
+      icon: <Wind className="w-12 h-12" />, 
+      title: "HVAC Systems", 
+      description: "Complete heating, ventilation, and air conditioning solutions",
+      color: "from-green-400 to-emerald-500" 
+    },
+    { 
+      icon: <Zap className="w-12 h-12" />, 
+      title: "Electrical Design", 
+      description: "Comprehensive electrical and low voltage consulting",
+      color: "from-yellow-400 to-orange-500" 
+    },
+    { 
+      icon: <Droplets className="w-12 h-12" />, 
+      title: "Plumbing Solutions", 
+      description: "Expert water supply and sewage management systems",
+      color: "from-blue-400 to-cyan-500" 
+    },
+    { 
+      icon: <Flame className="w-12 h-12" />, 
+      title: "Fire Safety", 
+      description: "Advanced fire fighting and detection systems",
+      color: "from-red-400 to-pink-500" 
+    }
   ]
 
   return (
@@ -143,9 +156,9 @@ export default function Home() {
                 </Link>
               </motion.div>
 
-              {/* Service Icons Row */}
+              {/* Service Cards Row */}
               <motion.div 
-                className="flex gap-3 sm:gap-4 mt-6 sm:mt-8 overflow-x-auto pb-2"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
@@ -153,12 +166,18 @@ export default function Home() {
                 {services.map((service, idx) => (
                   <motion.div
                     key={idx}
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg flex-shrink-0`}
-                    title={service.title}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                    className={`p-4 rounded-xl bg-gradient-to-br ${service.color} text-white shadow-lg cursor-pointer group`}
                   >
-                    {service.icon}
+                    <motion.div 
+                      className="w-10 h-10 sm:w-12 sm:h-12 mb-3 mx-auto bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {service.icon}
+                    </motion.div>
+                    <h3 className="text-sm sm:text-base font-bold text-center mb-1">{service.title}</h3>
+                    <p className="text-xs text-white/90 text-center line-clamp-2">{service.description}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -264,67 +283,6 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        {/* Background Elements */}
-        <AnimatedGrid />
-        <ParticleField />
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -15, 
-                  scale: 1.05,
-                  boxShadow: "0 25px 50px rgba(59, 130, 246, 0.2)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="relative group text-center p-6 sm:p-8 rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden"
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                />
-                
-                <motion.div
-                  className="relative z-10"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="inline-block p-2 sm:p-3 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-3 sm:mb-4">
-                    <div className="scale-75 sm:scale-100">
-                      {stat.icon}
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-2"
-                  initial={{ scale: 1 }}
-                  whileInView={{ scale: [1, 1.2, 1] }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
-                >
-                  {stat.number}
-                </motion.div>
-                <div className="text-gray-600 font-medium text-sm sm:text-base">{stat.label}</div>
-
-                {/* Animated corner accent */}
-                <motion.div
-                  className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary-400 to-primary-600 opacity-10 rounded-bl-full"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                />
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

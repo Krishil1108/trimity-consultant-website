@@ -47,12 +47,12 @@ export default function About() {
               </motion.div>
 
               <motion.h1 
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-4"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4"
                 animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
                 transition={{ duration: 8, repeat: Infinity }}
               >
                 <span className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-600 bg-clip-text text-transparent" style={{ backgroundSize: '200% auto' }}>
-                  Know More About Us
+                  About Us
                 </span>
               </motion.h1>
             </MouseParallax>
@@ -278,7 +278,7 @@ export default function About() {
                           <img 
                             src="/projects/founder.jpg"
                             alt="Mr. Ketul Lathia"
-                            className="w-32 h-32 rounded-full object-cover"
+                            className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover"
                           />
                         </div>
                       </motion.div>
