@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
@@ -124,16 +125,22 @@ export default function Projects() {
                   className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
-                    <motion.img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover"
+                    <motion.div
+                      className="relative w-full h-full"
                       animate={{
                         scale: hoveredIndex === index ? 1.15 : 1,
                         filter: hoveredIndex === index ? 'brightness(1.1)' : 'brightness(1)'
                       }}
                       transition={{ duration: 0.6 }}
-                    />
+                    >
+                      <Image 
+                        src={project.image} 
+                        alt={project.title}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    </motion.div>
                     
                     {/* Overlay gradient */}
                     <motion.div 
