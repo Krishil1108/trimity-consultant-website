@@ -119,8 +119,8 @@ export default function Services() {
               >
                 <motion.div
                   className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <Wind className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </motion.div>
@@ -198,8 +198,8 @@ export default function Services() {
                       <div className="relative z-10">
                         <motion.div 
                           className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6 shadow-2xl"
-                          whileHover={{ rotate: 360, scale: 1.15 }}
-                          transition={{ duration: 0.6 }}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
                         >
                           <div className="scale-90 sm:scale-100">
                             {service.icon}
@@ -263,8 +263,8 @@ export default function Services() {
                             className="flex items-start space-x-4 p-5 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item border border-transparent hover:border-gray-100"
                           >
                             <motion.div
-                              whileHover={{ rotate: 360, scale: 1.2 }}
-                              transition={{ duration: 0.5 }}
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.3 }}
                               className="flex-shrink-0 mt-1"
                             >
                               <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center shadow-md`}>
@@ -307,8 +307,8 @@ export default function Services() {
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
                 <motion.div
                   className={`mx-4 p-3 rounded-full bg-gradient-to-br ${service.color} shadow-lg`}
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   {services[(index + 1) % services.length].icon}
                 </motion.div>

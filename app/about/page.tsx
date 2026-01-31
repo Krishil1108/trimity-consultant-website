@@ -38,8 +38,8 @@ export default function About() {
             <MouseParallax strength={15}>
               <motion.div
                 className="inline-block mb-4 sm:mb-6"
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-2xl">
                   <Building2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
@@ -83,8 +83,8 @@ export default function About() {
                   >
                     <motion.div
                       className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-4"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
                     >
                       {stat.icon}
                     </motion.div>
@@ -224,8 +224,8 @@ export default function About() {
                         <div className="flex items-start space-x-5 mb-6">
                           <motion.div
                             className={`flex-shrink-0 p-4 rounded-2xl bg-gradient-to-br ${item.color} text-white shadow-lg`}
-                            whileHover={{ rotate: 360, scale: 1.1 }}
-                            transition={{ duration: 0.6 }}
+                            whileHover={{ scale: 1.05, y: -3 }}
+                            transition={{ duration: 0.3 }}
                           >
                             {item.icon}
                           </motion.div>
@@ -270,8 +270,8 @@ export default function About() {
                     <div className="text-center mb-6">
                       <motion.div
                         className="inline-block p-1 rounded-full bg-gradient-to-r from-primary-500 to-blue-600 mb-4"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
                       >
                         <div className="bg-white rounded-full p-1">
                           <img 
@@ -322,8 +322,8 @@ export default function About() {
                         >
                           <motion.div
                             className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-2"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.3 }}
                           >
                             {stat.icon}
                           </motion.div>
