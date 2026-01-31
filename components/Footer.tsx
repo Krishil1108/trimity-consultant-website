@@ -14,6 +14,7 @@ export default function Footer() {
             width={200} 
             height={70}
             className="h-14 w-auto"
+            unoptimized
           />
         </div>
         <p className="text-gray-400 mb-4">
