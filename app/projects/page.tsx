@@ -69,7 +69,7 @@ export default function Projects() {
       <AnimatedGrid />
       <ParticleField />
 
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/80 via-white/80 to-primary-50/80 z-0" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -77,11 +77,11 @@ export default function Projects() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
             <MouseParallax strength={12}>
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-4"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
@@ -94,7 +94,7 @@ export default function Projects() {
                   Our Projects
                 </motion.span>
               </motion.h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                 Delivering excellence across diverse sectors including residential, industrial, 
                 healthcare, shopping complexes, mid-rise towers, commercial spaces, and hospitality
               </p>
@@ -105,7 +105,7 @@ export default function Projects() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
           >
             {projects.map((project, index) => (
               <MouseParallax key={index} strength={8}>
@@ -117,10 +117,11 @@ export default function Projects() {
                     rotateY: 5,
                     boxShadow: "0 25px 50px rgba(0,0,0,0.25)"
                   }}
+                  whileTap={{ scale: 1.01 }}
                   onHoverStart={() => setHoveredIndex(index)}
                   onHoverEnd={() => setHoveredIndex(null)}
                   style={{ transformStyle: 'preserve-3d' }}
-                  className="group relative overflow-hidden rounded-3xl shadow-xl transition-all duration-500"
+                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
                     <motion.img 
@@ -153,21 +154,21 @@ export default function Projects() {
                   </div>
 
                   <motion.div 
-                    className="absolute inset-0 flex flex-col justify-end p-8"
+                    className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-8"
                     style={{ zIndex: 10 }}
                   >
                     <motion.span 
-                      className="inline-block px-3 py-1 rounded-full bg-primary-500/90 backdrop-blur-sm text-white text-sm font-semibold mb-3 self-start"
+                      className="inline-block px-2.5 sm:px-3 py-1 rounded-full bg-primary-500/90 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold mb-2 sm:mb-3 self-start"
                       whileHover={{ scale: 1.1, backgroundColor: 'rgb(59, 130, 246)' }}
                     >
                       {project.category}
                     </motion.span>
-                    <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">{project.title}</h3>
                     
                     <motion.div
-                      className="w-16 h-1 bg-primary-400 rounded-full"
+                      className="w-12 sm:w-16 h-1 bg-primary-400 rounded-full"
                       animate={{
-                        width: hoveredIndex === index ? '100%' : '64px'
+                        width: hoveredIndex === index ? '100%' : '48px'
                       }}
                       transition={{ duration: 0.4 }}
                     />
@@ -175,7 +176,7 @@ export default function Projects() {
 
                   {/* Corner accent */}
                   <motion.div
-                    className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-primary-400 opacity-0"
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 border-t-2 border-r-2 border-primary-400 opacity-0"
                     animate={{
                       opacity: hoveredIndex === index ? 1 : 0,
                       scale: hoveredIndex === index ? 1 : 0.8

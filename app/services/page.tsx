@@ -100,7 +100,7 @@ export default function Services() {
       <ParticleField />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/80 via-white/80 to-primary-50/80 z-0" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -108,26 +108,26 @@ export default function Services() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
             <MouseParallax strength={10}>
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="inline-block mb-6"
+                className="inline-block mb-4 sm:mb-6"
               >
                 <motion.div
-                  className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center shadow-xl"
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-xl"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Wind className="w-10 h-10 text-white" />
+                  <Wind className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </motion.div>
               </motion.div>
 
               <motion.h1 
-                className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-4"
                 animate={{
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 }}
@@ -135,7 +135,7 @@ export default function Services() {
               >
                 What We Provide
               </motion.h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                 Comprehensive MEPF solutions delivered by experienced professionals. 
                 We deliver unified solutions through our trusted associates in electrical, HVAC, 
                 plumbing, and fire-fighting systems.
@@ -148,7 +148,7 @@ export default function Services() {
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="space-y-12"
+            className="space-y-8 sm:space-y-10 md:space-y-12"
           >
             {services.map((service, index) => (
               <MouseParallax key={index} strength={5 + index * 2}>
@@ -159,22 +159,23 @@ export default function Services() {
                     rotateY: 2,
                     boxShadow: "0 30px 60px rgba(0,0,0,0.15)"
                   }}
+                  whileTap={{ scale: 1.01 }}
                   style={{ transformStyle: 'preserve-3d' }}
                   className="group"
                 >
-                  <div className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative">
+                  <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 relative">
                     {/* Animated corner glow */}
                     <motion.div
-                      className="absolute top-0 right-0 w-64 h-64 opacity-0 group-hover:opacity-30 blur-3xl transition-opacity"
+                      className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 opacity-0 group-hover:opacity-30 blur-3xl transition-opacity"
                       style={{
                         background: `linear-gradient(to bottom right, ${service.color.replace('from-', 'rgb(')}, transparent)`
                       }}
                     />
 
-                    <div className="grid md:grid-cols-3 gap-0 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-0 relative z-10">
                     {/* Icon & Title Section */}
                     <motion.div 
-                      className={`p-10 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}
+                      className={`p-6 sm:p-8 md:p-10 bg-gradient-to-br ${service.color} text-white relative overflow-hidden`}
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -196,33 +197,35 @@ export default function Services() {
                       
                       <div className="relative z-10">
                         <motion.div 
-                          className="w-24 h-24 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-6"
+                          className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 sm:mb-6"
                           whileHover={{ rotate: 360, scale: 1.15 }}
                           transition={{ duration: 0.6 }}
                         >
-                          {service.icon}
+                          <div className="scale-75 sm:scale-90 md:scale-100">
+                            {service.icon}
+                          </div>
                         </motion.div>
                         
-                        <h2 className="text-3xl font-bold mb-2">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                           {service.title}
                         </h2>
-                        <h3 className="text-lg font-semibold opacity-90 mb-4">
+                        <h3 className="text-sm sm:text-base md:text-lg font-semibold opacity-90 mb-3 sm:mb-4">
                           {service.subtitle}
                         </h3>
-                        <p className="text-white/90 leading-relaxed">
+                        <p className="text-sm sm:text-base text-white/90 leading-relaxed">
                           {service.description}
                         </p>
                       </div>
                     </motion.div>
 
                     {/* Features Section */}
-                    <div className="md:col-span-2 p-10 bg-gradient-to-br from-gray-50 to-white">
-                      <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                        <span className="w-1 h-6 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-3"></span>
+                    <div className="md:col-span-2 p-6 sm:p-8 md:p-10 bg-gradient-to-br from-gray-50 to-white">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center">
+                        <span className="w-1 h-5 sm:h-6 bg-gradient-to-b from-primary-500 to-primary-700 rounded-full mr-2 sm:mr-3"></span>
                         Our Expertise
                       </h4>
                       
-                      <div className="grid gap-4">
+                      <div className="grid gap-3 sm:gap-4">
                         {service.features.map((feature, idx) => (
                           <motion.div
                             key={idx}
@@ -231,15 +234,16 @@ export default function Services() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.05 }}
                             whileHover={{ x: 10, scale: 1.02 }}
-                            className="flex items-start space-x-3 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 group/item"
+                            className="flex items-start space-x-2 sm:space-x-3 p-3 sm:p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300 group/item"
                           >
                             <motion.div
                               whileHover={{ rotate: 360 }}
                               transition={{ duration: 0.5 }}
+                              className="flex-shrink-0"
                             >
-                              <CheckCircle className={`w-6 h-6 flex-shrink-0 mt-0.5 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
+                              <CheckCircle className={`w-5 h-5 sm:w-6 sm:h-6 mt-0.5 bg-gradient-to-br ${service.color} bg-clip-text text-transparent`} />
                             </motion.div>
-                            <p className="text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors">
+                            <p className="text-sm sm:text-base text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors">
                               {feature}
                             </p>
                           </motion.div>

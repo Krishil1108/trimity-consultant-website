@@ -22,7 +22,7 @@ export default function About() {
       <AnimatedGrid />
       <ParticleField />
 
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="absolute inset-0 bg-gradient-to-br from-primary-50/80 via-white/80 to-primary-50/80 z-0"
           style={{ y }}
@@ -33,21 +33,21 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
             <MouseParallax strength={15}>
               <motion.div
-                className="inline-block mb-6"
+                className="inline-block mb-4 sm:mb-6"
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-2xl">
-                  <Building2 className="w-12 h-12 text-white" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-2xl">
+                  <Building2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
                 </div>
               </motion.div>
 
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 px-4"
                 animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
                 transition={{ duration: 8, repeat: Infinity }}
               >
@@ -58,7 +58,7 @@ export default function About() {
             </MouseParallax>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">
             <MouseParallax strength={10}>
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
@@ -66,7 +66,7 @@ export default function About() {
                 transition={{ duration: 0.8 }}
               >
                 <motion.div 
-                  className="space-y-4 text-gray-600 leading-relaxed text-lg"
+                  className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed text-sm sm:text-base md:text-lg"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
@@ -122,6 +122,7 @@ export default function About() {
                       scale: 1.02,
                       boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
                     }}
+                    whileTap={{ scale: 1.01 }}
                   >
                     <motion.div
                       className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`}
@@ -131,23 +132,25 @@ export default function About() {
                       transition={{ delay: idx * 0.2 + 0.3, duration: 0.6 }}
                     />
 
-                    <div className="flex items-center space-x-4 mb-4">
+                    <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
                       <motion.div
-                        className={`p-3 rounded-xl bg-gradient-to-br ${item.color} text-white`}
+                        className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br ${item.color} text-white flex-shrink-0`}
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.6 }}
                       >
-                        {item.icon}
+                        <div className="scale-75 sm:scale-100">
+                          {item.icon}
+                        </div>
                       </motion.div>
-                      <h3 className="text-2xl font-bold text-gray-900">{item.title}</h3>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">{item.title}</h3>
                     </div>
 
-                    <p className="text-gray-700 leading-relaxed pl-16">
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed pl-0 sm:pl-12 md:pl-16">
                       {item.text}
                     </p>
 
                     <motion.div
-                      className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary-100/50 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-tl from-primary-100/50 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity"
                     />
                   </motion.div>
                 ))}
@@ -160,15 +163,16 @@ export default function About() {
                 initial={{ opacity: 0, x: 60 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="sticky top-32 space-y-8"
+                className="md:sticky md:top-32 space-y-6 sm:space-y-8 mt-8 md:mt-0"
               >
                 <motion.div 
-                  className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 relative overflow-hidden group"
+                  className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 relative overflow-hidden group"
                   whileHover={{ 
                     scale: 1.03,
                     rotateY: 3,
                     boxShadow: "0 30px 60px rgba(0,0,0,0.2)"
                   }}
+                  whileTap={{ scale: 1.01 }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
                   {/* Animated background gradient */}
@@ -178,21 +182,21 @@ export default function About() {
 
                   {/* Decorative corner */}
                   <motion.div
-                    className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-primary-200/30 to-transparent rounded-bl-full"
+                    className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-bl from-primary-200/30 to-transparent rounded-bl-full"
                     animate={{ rotate: [0, 90, 0] }}
                     transition={{ duration: 20, repeat: Infinity }}
                   />
 
                   <div className="relative z-10">
                     <motion.h2 
-                      className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent"
+                      className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent"
                       whileHover={{ scale: 1.05 }}
                     >
                       Mr. Ketul Lathia
                     </motion.h2>
 
                     <motion.div
-                      className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold mb-6 shadow-lg"
+                      className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs sm:text-sm font-semibold mb-4 sm:mb-6 shadow-lg"
                       whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
                     >
                       IGBC Accredited Professional (IGBC-AP)
