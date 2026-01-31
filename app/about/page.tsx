@@ -305,35 +305,6 @@ export default function About() {
                       </p>
                     </div>
 
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      {[
-                        { icon: <Award className="w-6 h-6" />, value: "21+", label: "Years" },
-                        { icon: <Building2 className="w-6 h-6" />, value: "250+", label: "Projects" },
-                        { icon: <Target className="w-6 h-6" />, value: "13+", label: "Consulting" }
-                      ].map((stat, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: idx * 0.1 }}
-                          whileHover={{ scale: 1.1, y: -5 }}
-                          className="text-center p-4 rounded-xl bg-gradient-to-br from-primary-50 to-blue-50 group/stat cursor-pointer"
-                        >
-                          <motion.div
-                            className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 text-white mb-2"
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            {stat.icon}
-                          </motion.div>
-                          <div className="text-2xl font-bold text-primary-600">{stat.value}</div>
-                          <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-
                     {/* Key Highlights */}
                     <div className="space-y-3">
                       <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
