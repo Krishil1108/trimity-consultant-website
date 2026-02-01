@@ -349,18 +349,6 @@ export default function About() {
                     </motion.div>
                   </div>
                 </motion.div>
-
-                {/* Company Image */}
-                <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="rounded-3xl overflow-hidden shadow-2xl"
-                >
-                  <img 
-                    src="https://lh3.googleusercontent.com/sitesv/APaQ0SRK-MAaXWFOx4bl5fOVPCrEuX6d4vPYrWL0Qm6zJm9thagop-SjzzsfdpQH29BEIGSb5yHCbfeID2XD-iV7v8a4tTsb9PFg9pDUxF8ALpMnnsbXQ9VywAm2YeYpWAD5k8deEewBAsXxJlj9YX_6s0MsSLWIxGqbNzpwGyA0Rj98D8gNfwUuYDu0ziH1EAsEjEfzRszYKFoCcqfGxJ_rLezIFZOpfe1ysF8X=w1280"
-                    alt="About Trimity Consultants"
-                    className="w-full h-auto"
-                  />
-                </motion.div>
               </motion.div>
             </MouseParallax>
           </div>
