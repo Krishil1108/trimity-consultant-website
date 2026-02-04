@@ -69,7 +69,7 @@ export default function About() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                 {[
                   { number: "21+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
-                  { number: "250+", label: "Projects Delivered", icon: <Building2 className="w-8 h-8" /> },
+                  { number: "450+", label: "Projects Delivered", icon: <Building2 className="w-8 h-8" /> },
                   { number: "100%", label: "Client Satisfaction", icon: <Target className="w-8 h-8" /> }
                 ].map((stat, idx) => (
                   <motion.div

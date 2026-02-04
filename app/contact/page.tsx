@@ -20,22 +20,22 @@ export default function Contact() {
     {
       icon: <Phone className="w-12 h-12" />,
       title: "Call Us",
-      content: "Contact us for project inquiries and consultations",
+      content: "+91-9662474538",
       color: "from-green-500 to-emerald-500",
       gradient: "from-green-50 to-emerald-50"
     },
     {
       icon: <Mail className="w-12 h-12" />,
       title: "Email Us",
-      content: "info@trimity.co.in",
+      content: "trimityconsultants@gmail.com",
       color: "from-orange-500 to-red-500",
       gradient: "from-orange-50 to-red-50"
     }
   ]
 
   const workingHours = [
-    { day: "Monday - Friday", time: "9:00 AM - 6:00 PM" },
-    { day: "Saturday", time: "9:00 AM - 2:00 PM" },
+    { day: "Monday - Friday", time: "9:30 AM - 6:30 PM" },
+    { day: "Saturday", time: "9:30 AM - 1:30 PM" },
     { day: "Sunday", time: "Closed" }
   ]
 
@@ -266,10 +266,10 @@ export default function Contact() {
               we're here to help transform your vision into reality.
             </p>
             <a 
-              href="mailto:info@trimity.co.in"
+              href="mailto:trimityconsultants@gmail.com"
               className="text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors"
             >
-              info@trimity.co.in
+              trimityconsultants@gmail.com
             </a>
             <p className="text-gray-600 mt-4">
               www.trimity.co.in

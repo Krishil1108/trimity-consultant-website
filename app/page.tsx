@@ -214,7 +214,7 @@ export default function Home() {
                   transition={{ duration: 4, repeat: Infinity }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">250+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1">450+</div>
                   <div className="text-sm text-gray-600">Projects</div>
                 </motion.div>
 
