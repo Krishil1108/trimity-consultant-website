@@ -36,12 +36,13 @@ export default function Navigation() {
               className="flex items-center space-x-3 cursor-pointer"
             >
               <Image 
-                src="/logo.jpg" 
+                src="/logo.svg" 
                 alt="Trimity Consultants Logo" 
                 width={160} 
                 height={50}
                 className="h-8 sm:h-10 md:h-12 w-auto"
                 priority
+                unoptimized
               />
             </motion.div>
           </Link>

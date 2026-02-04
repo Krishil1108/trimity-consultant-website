@@ -470,7 +470,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
                   >
-                    Vishalpur, Muslim Society, Navrangpura
+                    Navrangpura
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, x: -20 }}

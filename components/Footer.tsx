@@ -9,11 +9,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto text-center">
         <div className="flex items-center justify-center mb-4">
           <Image 
-            src="/logo.jpg" 
+            src="/logo.svg" 
             alt="Trimity Consultants Logo" 
             width={200} 
             height={70}
             className="h-14 w-auto"
+            unoptimized
           />
         </div>
         <p className="text-gray-400 mb-4">
