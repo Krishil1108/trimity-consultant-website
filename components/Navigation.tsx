@@ -38,9 +38,9 @@ export default function Navigation() {
               <Image 
                 src="/logo.svg" 
                 alt="Trimity Consultants Logo" 
-                width={240} 
-                height={80}
-                className="h-12 sm:h-14 md:h-16 w-auto"
+                width={320} 
+                height={110}
+                className="h-16 sm:h-20 md:h-24 w-auto"
                 priority
                 unoptimized
               />
