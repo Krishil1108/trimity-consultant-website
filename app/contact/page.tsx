@@ -13,7 +13,7 @@ export default function Contact() {
     {
       icon: <MapPin className="w-12 h-12" />,
       title: "Visit Us",
-      content: "Yash Anant, 1402-B, Ashram Rd, opposite old Reserve Bank of India, Vishalpur, Muslim Society, Navrangpura, Ahmedabad, Gujarat 380009",
+      content: "1402-B, Yash Anant, Ashram Rd, opposite old Reserve bank of India, Navrangpura, Ahmedabad, Gujarat 380009",
       color: "from-blue-500 to-cyan-500",
       gradient: "from-blue-50 to-cyan-50"
     },
@@ -188,10 +188,9 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-lg text-gray-700 font-medium">Trimity Consultants</p>
-                        <p className="text-gray-600">Yash Anant, 1402-B</p>
+                        <p className="text-gray-600">1402-B, Yash Anant</p>
                         <p className="text-gray-600">Ashram Road</p>
-                        <p className="text-gray-600">Opposite old Reserve Bank of India</p>
-                        <p className="text-gray-600">Vishalpur, Muslim Society</p>
+                        <p className="text-gray-600">Opposite old Reserve bank of India</p>
                         <p className="text-gray-600">Navrangpura, Ahmedabad</p>
                         <p className="text-gray-600 font-semibold">Gujarat 380009</p>
                       </div>
@@ -221,7 +220,7 @@ export default function Contact() {
                   </div>
 
                   <motion.a
-                    href="https://maps.google.com/?q=Yash+Anant+1402-B+Ashram+Road+Navrangpura+Ahmedabad"
+                    href="https://maps.google.com/?q=1402-B+Yash+Anant+Ashram+Road+Navrangpura+Ahmedabad+Gujarat+380009"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
