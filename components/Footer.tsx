@@ -11,9 +11,9 @@ export default function Footer() {
           <Image 
             src="/logo.svg" 
             alt="Trimity Consultants Logo" 
-            width={200} 
-            height={70}
-            className="h-14 w-auto"
+            width={280} 
+            height={100}
+            className="h-20 w-auto"
             unoptimized
           />
         </div>
