@@ -6,7 +6,6 @@ import { useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
 
 export default function About() {
@@ -15,11 +14,10 @@ export default function About() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-white overflow-hidden">
+    <main ref={containerRef} className="min-h-screen bg-white overflow-hidden relative">
       <Navigation />
       
       {/* Background Elements */}
-      <AnimatedGrid />
       <ParticleField />
 
       <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">

@@ -6,7 +6,6 @@ import { useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
 
 export default function Services() {
@@ -85,7 +84,6 @@ export default function Services() {
       <Navigation />
       
       {/* Background Elements */}
-      <AnimatedGrid />
       <ParticleField />
 
       {/* Hero Section */}
