@@ -11,13 +11,6 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: <MapPin className="w-12 h-12" />,
-      title: "Visit Us",
-      content: "1402-B, Yash Anant, Ashram Rd, opposite old Reserve bank of India, Navrangpura, Ahmedabad, Gujarat 380009",
-      color: "from-blue-500 to-cyan-500",
-      gradient: "from-blue-50 to-cyan-50"
-    },
-    {
       icon: <Phone className="w-12 h-12" />,
       title: "Call Us",
       content: "+91-9662474538",
@@ -30,13 +23,19 @@ export default function Contact() {
       content: "trimityconsultants@gmail.com",
       color: "from-orange-500 to-red-500",
       gradient: "from-orange-50 to-red-50"
+    },
+    {
+      icon: <Clock className="w-12 h-12" />,
+      title: "Working Hours",
+      content: "Mon-Fri: 9:30 AM - 6:30 PM | Sat-Sun: Closed",
+      color: "from-purple-500 to-pink-500",
+      gradient: "from-purple-50 to-pink-50"
     }
   ]
 
   const workingHours = [
     { day: "Monday - Friday", time: "9:30 AM - 6:30 PM" },
-    { day: "Saturday", time: "9:30 AM - 1:30 PM" },
-    { day: "Sunday", time: "Closed" }
+    { day: "Saturday - Sunday", time: "Closed" }
   ]
 
   return (
@@ -154,7 +153,7 @@ export default function Contact() {
                   className="h-full"
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9876543210123!2d72.5555555!3d23.0333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAyJzAwLjAiTiA3MsKwMzMnMjAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.736434893473!2d72.56746927477057!3d23.03344761592329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85888aa05d2d%3A0xfb897f2fc109159e!2sYash%20Anant!5e0!3m2!1sen!2sin!4v1770285369961!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

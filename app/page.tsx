@@ -572,6 +572,110 @@ export default function Home() {
               </Link>
             ))}
           </div>
+
+          {/* Project Showcase Scrolling Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 sm:mt-16"
+          >
+            <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
+              Our Recent Projects
+            </h3>
+            
+            <div className="relative overflow-hidden">
+              {/* Gradient overlays for fade effect */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+              
+              {/* Scrolling container */}
+              <motion.div
+                className="flex gap-4 sm:gap-6"
+                animate={{
+                  x: [0, -1920],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 30,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {/* Duplicate the array for seamless loop */}
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-4 sm:gap-6">
+                    {[
+                      { name: "Luxury Residential Complex", type: "Residential", color: "from-blue-500 to-blue-600" },
+                      { name: "Modern Shopping Mall", type: "Commercial", color: "from-purple-500 to-purple-600" },
+                      { name: "Corporate Office Tower", type: "Commercial", color: "from-green-500 to-green-600" },
+                      { name: "Healthcare Facility", type: "Healthcare", color: "from-red-500 to-red-600" },
+                      { name: "Industrial Warehouse", type: "Industrial", color: "from-orange-500 to-orange-600" },
+                      { name: "Hospitality Resort", type: "Hospitality", color: "from-pink-500 to-pink-600" },
+                      { name: "Mixed-Use Development", type: "Mixed-Use", color: "from-indigo-500 to-indigo-600" },
+                      { name: "Premium Villa Project", type: "Residential", color: "from-cyan-500 to-cyan-600" },
+                    ].map((project, idx) => (
+                      <motion.div
+                        key={`${setIndex}-${idx}`}
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        className="flex-shrink-0 w-64 sm:w-80 h-48 sm:h-56 rounded-2xl overflow-hidden shadow-xl group cursor-pointer relative"
+                      >
+                        {/* Placeholder gradient background */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-90 group-hover:opacity-100 transition-opacity`}>
+                          <div className="absolute inset-0 bg-black/20" />
+                          {/* Pattern overlay */}
+                          <div 
+                            className="absolute inset-0 opacity-10"
+                            style={{
+                              backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.1) 10px, rgba(255,255,255,.1) 20px)',
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Content */}
+                        <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="transform group-hover:translate-y-0 transition-transform"
+                          >
+                            <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold text-white mb-2">
+                              {project.type}
+                            </span>
+                            <h4 className="text-lg sm:text-xl font-bold text-white mb-2">
+                              {project.name}
+                            </h4>
+                            <p className="text-sm text-white/90 opacity-0 group-hover:opacity-100 transition-opacity">
+                              MEPF Design & Consultation
+                            </p>
+                          </motion.div>
+                        </div>
+
+                        {/* Building icon watermark */}
+                        <Building2 className="absolute top-4 right-4 w-12 h-12 text-white/10" />
+                      </motion.div>
+                    ))}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* View all projects button */}
+            <div className="text-center mt-8">
+              <Link href="/projects">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  View All Projects
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
