@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import ParticleField from '@/components/ParticleField'
 
 export default function Projects() {
   const projects = [
@@ -44,6 +45,7 @@ export default function Projects() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
+      <ParticleField />
 
       <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-50" />

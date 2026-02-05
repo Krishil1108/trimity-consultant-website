@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, Globe, Send } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import ParticleField from '@/components/ParticleField'
 import { useState } from 'react'
 
 export default function Contact() {
@@ -41,6 +42,7 @@ export default function Contact() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
+      <ParticleField />
 
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden relative">

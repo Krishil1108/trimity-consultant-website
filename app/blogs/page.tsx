@@ -4,11 +4,13 @@ import { motion } from 'framer-motion'
 import { BookOpen, TrendingUp, Wrench } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import ParticleField from '@/components/ParticleField'
 
 export default function Blogs() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
+      <ParticleField />
 
       <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
