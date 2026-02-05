@@ -27,7 +27,7 @@ export default function Contact() {
     {
       icon: <Clock className="w-12 h-12" />,
       title: "Working Hours",
-      content: "Mon-Fri: 9:30 AM - 6:30 PM | Sat-Sun: Closed",
+      content: "Mon-Fri: 9:30 AM - 6:30 PM\nSat-Sun: Closed",
       color: "from-purple-500 to-pink-500",
       gradient: "from-purple-50 to-pink-50"
     }
@@ -126,7 +126,15 @@ export default function Contact() {
                   </motion.div>
                   
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">{item.title}</h3>
-                  <p className="text-gray-600 text-center leading-relaxed">{item.content}</p>
+                  {item.title === "Call Us" ? (
+                    <div className="text-gray-600 text-center leading-relaxed">
+                      <a href="tel:+919662474538" className="hover:text-primary-600 transition-colors">+91 96624 74538</a>
+                      {" | "}
+                      <a href="tel:+919512173874" className="hover:text-primary-600 transition-colors">+91 95121 73874</a>
+                    </div>
+                  ) : (
+                    <p className="text-gray-600 text-center leading-relaxed whitespace-pre-line">{item.content}</p>
+                  )}
                 </div>
               </motion.div>
             ))}
