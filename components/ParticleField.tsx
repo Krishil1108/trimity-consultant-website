@@ -39,8 +39,8 @@ export default function ParticleField() {
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.5,
       vy: (Math.random() - 0.5) * 0.5,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.2
+      size: Math.random() * 3 + 1.5,
+      opacity: Math.random() * 0.6 + 0.4
     }))
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -96,8 +96,8 @@ export default function ParticleField() {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - distance / 120) * 0.2})`
-            ctx.lineWidth = 0.5
+            ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - distance / 120) * 0.3})`
+            ctx.lineWidth = 0.8
             ctx.stroke()
           }
         })
@@ -118,7 +118,7 @@ export default function ParticleField() {
   return (
     <motion.canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none z-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
