@@ -105,7 +105,7 @@ export default function Home() {
               </MouseParallax>
 
               <motion.p 
-                className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed text-justify"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -214,7 +214,7 @@ export default function Home() {
                   transition={{ duration: 4, repeat: Infinity }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">450+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1">700+</div>
                   <div className="text-sm text-gray-600">Projects</div>
                 </motion.div>
 
@@ -226,7 +226,7 @@ export default function Home() {
                   transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">21+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1">18+</div>
                   <div className="text-sm text-gray-600">Years</div>
                 </motion.div>
 
@@ -238,8 +238,8 @@ export default function Home() {
                   transition={{ duration: 4, repeat: Infinity, delay: 1 }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">13+</div>
-                  <div className="text-sm text-gray-600">Consulting</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1">50+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
                 </motion.div>
 
                 <motion.div
@@ -283,6 +283,219 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Global Reach Section */}
+      <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 overflow-hidden">
+        {/* Animated Background */}
+        <motion.div
+          className="absolute inset-0 opacity-10"
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
+          style={{
+            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Global Engineering Excellence
+            </h2>
+            <p className="text-base sm:text-lg text-primary-100 max-w-3xl mx-auto">
+              Delivering world-class MEPF solutions across continents
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* World Map Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/20">
+                {/* Simplified World Map with Pins */}
+                <div className="relative w-full aspect-[2/1] bg-white/5 rounded-2xl overflow-hidden">
+                  <svg viewBox="0 0 800 400" className="w-full h-full">
+                    {/* Simplified world continents */}
+                    <g fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" strokeWidth="1">
+                      {/* India */}
+                      <path d="M 520 180 L 530 160 L 545 155 L 555 165 L 560 180 L 555 200 L 545 210 L 530 205 L 520 190 Z" />
+                      {/* Middle East / Saudi Arabia */}
+                      <path d="M 480 160 L 500 150 L 515 155 L 520 170 L 510 185 L 495 180 L 480 170 Z" />
+                      {/* Africa / South Africa */}
+                      <path d="M 450 220 L 470 210 L 485 220 L 490 245 L 485 265 L 475 280 L 460 285 L 445 275 L 440 250 Z" />
+                      {/* Background continents */}
+                      <path d="M 150 120 L 200 100 L 250 110 L 280 140 L 270 180 L 240 200 L 200 190 L 160 160 Z" opacity="0.3" />
+                      <path d="M 600 140 L 650 130 L 680 150 L 690 180 L 670 200 L 630 195 L 600 170 Z" opacity="0.3" />
+                    </g>
+
+                    {/* Animated location pins */}
+                    {/* India Pin */}
+                    <motion.g
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3, type: 'spring' }}
+                    >
+                      <motion.circle
+                        cx="545"
+                        cy="180"
+                        r="8"
+                        fill="#f59e0b"
+                        animate={{ scale: [1, 1.3, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
+                      <circle cx="545" cy="180" r="15" fill="#f59e0b" opacity="0.3">
+                        <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" />
+                      </circle>
+                    </motion.g>
+
+                    {/* Saudi Arabia Pin */}
+                    <motion.g
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5, type: 'spring' }}
+                    >
+                      <motion.circle
+                        cx="505"
+                        cy="165"
+                        r="8"
+                        fill="#10b981"
+                        animate={{ scale: [1, 1.3, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                      />
+                      <circle cx="505" cy="165" r="15" fill="#10b981" opacity="0.3">
+                        <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                      </circle>
+                    </motion.g>
+
+                    {/* South Africa Pin */}
+                    <motion.g
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.7, type: 'spring' }}
+                    >
+                      <motion.circle
+                        cx="465"
+                        cy="270"
+                        r="8"
+                        fill="#3b82f6"
+                        animate={{ scale: [1, 1.3, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                      />
+                      <circle cx="465" cy="270" r="15" fill="#3b82f6" opacity="0.3">
+                        <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" begin="1s" />
+                        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" begin="1s" />
+                      </circle>
+                    </motion.g>
+
+                    {/* Connecting lines */}
+                    <motion.path
+                      d="M 545 180 Q 525 172 505 165"
+                      stroke="rgba(251,191,36,0.4)"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="5,5"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 0.8 }}
+                    />
+                    <motion.path
+                      d="M 545 180 Q 505 225 465 270"
+                      stroke="rgba(59,130,246,0.4)"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="5,5"
+                      initial={{ pathLength: 0 }}
+                      whileInView={{ pathLength: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 1 }}
+                    />
+                  </svg>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Project Locations */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4 sm:space-y-6"
+            >
+              {[
+                {
+                  country: "India",
+                  icon: "🇮🇳",
+                  color: "from-orange-400 to-orange-600",
+                  projects: "650+",
+                  description: "Leading MEPF projects across residential, commercial, and industrial sectors"
+                },
+                {
+                  country: "Saudi Arabia",
+                  icon: "🇸🇦",
+                  color: "from-green-400 to-green-600",
+                  projects: "35+",
+                  description: "International projects delivering excellence in the Middle East"
+                },
+                {
+                  country: "South Africa",
+                  icon: "🇿🇦",
+                  color: "from-blue-400 to-blue-600",
+                  projects: "15+",
+                  description: "Expanding engineering solutions across African infrastructure"
+                }
+              ].map((location, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15 }}
+                  whileHover={{ scale: 1.03, x: 10 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all cursor-pointer group"
+                >
+                  <div className="flex items-start space-x-4">
+                    <motion.div
+                      className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${location.color} flex items-center justify-center text-2xl sm:text-3xl shadow-lg`}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {location.icon}
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg sm:text-xl font-bold text-white">{location.country}</h3>
+                        <span className={`px-3 py-1 rounded-full bg-gradient-to-r ${location.color} text-white text-sm font-semibold shadow-lg`}>
+                          {location.projects}
+                        </span>
+                      </div>
+                      <p className="text-sm sm:text-base text-primary-100 leading-relaxed">
+                        {location.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -376,7 +589,7 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-primary-600 transition-colors">
                     {link.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                     {link.desc}
                   </p>
 

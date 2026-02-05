@@ -68,8 +68,8 @@ export default function About() {
             <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
                 {[
-                  { number: "21+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
-                  { number: "450+", label: "Projects Delivered", icon: <Building2 className="w-8 h-8" /> },
+                  { number: "18+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
+                  { number: "700+", label: "Projects Delivered", icon: <Building2 className="w-8 h-8" /> },
                   { number: "100%", label: "Client Satisfaction", icon: <Target className="w-8 h-8" /> }
                 ].map((stat, idx) => (
                   <motion.div
@@ -112,9 +112,9 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-lg"
+                    className="text-lg text-justify"
                   >
-                    <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India, specializing in comprehensive MEPF design, coordination, and execution.
+                    <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India and internationally, with successful projects in South Africa and Saudi Arabia, specializing in comprehensive MEPF design, coordination, and execution.
                   </motion.p>
 
                   <motion.div
@@ -124,7 +124,7 @@ export default function About() {
                     transition={{ delay: 0.1 }}
                     className="bg-gradient-to-r from-blue-50 to-primary-50 p-6 rounded-2xl border-l-4 border-primary-500"
                   >
-                    <p className="text-base sm:text-lg">
+                    <p className="text-base sm:text-lg text-justify">
                       Since our inception, we have successfully undertaken projects of varying sizes and complexities, providing tailored consulting solutions that meet diverse client needs. With a bold yet adaptable approach to industry trends, we continually integrate the latest technologies and methodologies into our workflow.
                     </p>
                   </motion.div>
@@ -134,7 +134,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-base sm:text-lg"
+                    className="text-base sm:text-lg text-justify"
                   >
                     Our commitment to excellence ensures meticulous attention to every project, regardless of scale, striking the perfect balance between cost-effectiveness and system efficiency. This dedication has earned us the trust and loyalty of our clients, who remain our strongest advocates and a driving force behind new opportunities.
                   </motion.p>
@@ -170,7 +170,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="text-lg font-semibold text-gray-900 border-t-2 border-primary-200 pt-6"
+                    className="text-lg font-semibold text-gray-900 border-t-2 border-primary-200 pt-6 text-justify"
                   >
                     Our mission is to ensure the seamless and successful execution of every project, leaving clients not just satisfied, but confident in the value and reliability of our solutions.
                   </motion.p>
@@ -236,7 +236,7 @@ export default function About() {
                           </div>
                         </div>
 
-                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-justify">
                           {item.text}
                         </p>
                       </div>
