@@ -105,7 +105,7 @@ export default function Contact() {
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100">
+                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 h-full min-h-[280px] flex flex-col">
                   <motion.div 
                     className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white mx-auto mb-6 relative`}
                     animate={{
@@ -126,15 +126,17 @@ export default function Contact() {
                   </motion.div>
                   
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">{item.title}</h3>
-                  {item.title === "Call Us" ? (
-                    <div className="text-gray-600 text-center leading-relaxed">
-                      <a href="tel:+919662474538" className="hover:text-primary-600 transition-colors">+91 96624 74538</a>
-                      {" | "}
-                      <a href="tel:+919512173874" className="hover:text-primary-600 transition-colors">+91 95121 73874</a>
-                    </div>
-                  ) : (
-                    <p className="text-gray-600 text-center leading-relaxed whitespace-pre-line">{item.content}</p>
-                  )}
+                  <div className="flex-1 flex items-center justify-center">
+                    {item.title === "Call Us" ? (
+                      <div className="text-gray-600 text-center leading-relaxed">
+                        <a href="tel:+919662474538" className="hover:text-primary-600 transition-colors">+91 96624 74538</a>
+                        {" | "}
+                        <a href="tel:+919512173874" className="hover:text-primary-600 transition-colors">+91 95121 73874</a>
+                      </div>
+                    ) : (
+                      <p className="text-gray-600 text-center leading-relaxed whitespace-pre-line">{item.content}</p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
