@@ -13,14 +13,14 @@ export default function Contact() {
     {
       icon: <Phone className="w-12 h-12" />,
       title: "Call Us",
-      content: "+91-9662474538",
+      content: "+91 96624 74538 | +91 95121 73874",
       color: "from-green-500 to-emerald-500",
       gradient: "from-green-50 to-emerald-50"
     },
     {
       icon: <Mail className="w-12 h-12" />,
       title: "Email Us",
-      content: "trimityconsultants@gmail.com",
+      content: "trimitybackoffice@gmail.com",
       color: "from-orange-500 to-red-500",
       gradient: "from-orange-50 to-red-50"
     },
@@ -196,28 +196,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <Clock className="w-5 h-5 text-primary-600" />
-                      <h3 className="text-xl font-bold text-gray-900">Working Hours</h3>
-                    </div>
-                    <div className="space-y-2">
-                      {workingHours.map((schedule, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex justify-between items-center py-2 px-4 rounded-lg hover:bg-primary-50 transition-colors"
-                        >
-                          <span className="text-gray-700 font-medium">{schedule.day}</span>
-                          <span className="text-gray-600">{schedule.time}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
                   <motion.a
                     href="https://maps.google.com/?q=1402-B+Yash+Anant+Ashram+Road+Navrangpura+Ahmedabad+Gujarat+380009"
                     target="_blank"
@@ -264,10 +242,10 @@ export default function Contact() {
               we're here to help transform your vision into reality.
             </p>
             <a 
-              href="mailto:trimityconsultants@gmail.com"
+              href="mailto:trimitybackoffice@gmail.com"
               className="text-primary-600 font-semibold text-lg hover:text-primary-700 transition-colors"
             >
-              trimityconsultants@gmail.com
+              trimitybackoffice@gmail.com
             </a>
             <p className="text-gray-600 mt-4">
               www.trimity.co.in
