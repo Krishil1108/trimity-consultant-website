@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function AnimatedGrid() {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Animated gradient background */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-primary-50"
