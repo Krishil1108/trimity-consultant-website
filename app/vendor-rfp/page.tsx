@@ -174,7 +174,7 @@ export default function VendorRFP() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
+              className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
@@ -294,7 +294,7 @@ export default function VendorRFP() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
+              className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-100"
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
