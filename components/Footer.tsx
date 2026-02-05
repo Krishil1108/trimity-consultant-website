@@ -69,7 +69,7 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4 text-primary-400" />
                   </div>
-                  <span>B-606, Yash Anant, Opp. Shukan Elite, Kudasan, Gandhinagar - 382421</span>
+                  <span>1402-B, Yash Anant, Ashram Road, Opp. old Reserve bank of India, Navrangpura, Ahmedabad - 380009</span>
                 </div>
               </div>
             </motion.div>
