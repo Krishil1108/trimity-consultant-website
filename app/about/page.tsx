@@ -112,7 +112,7 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-lg text-justify"
+                    className="text-lg text-left sm:text-justify"
                   >
                     <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India and internationally, with successful projects in South Africa and Saudi Arabia, specializing in comprehensive MEPF design, coordination, and execution.
                   </motion.p>
@@ -124,7 +124,7 @@ export default function About() {
                     transition={{ delay: 0.1 }}
                     className="bg-gradient-to-r from-blue-50 to-primary-50 p-6 rounded-2xl border-l-4 border-primary-500"
                   >
-                    <p className="text-base sm:text-lg text-justify">
+                    <p className="text-base sm:text-lg text-left sm:text-justify">
                       Since our inception, we have successfully undertaken projects of varying sizes and complexities, providing tailored consulting solutions that meet diverse client needs. With a bold yet adaptable approach to industry trends, we continually integrate the latest technologies and methodologies into our workflow.
                     </p>
                   </motion.div>
@@ -134,21 +134,21 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-base sm:text-lg text-justify"
+                    className="text-base sm:text-lg text-left sm:text-justify"
                   >
                     Our commitment to excellence ensures meticulous attention to every project, regardless of scale, striking the perfect balance between cost-effectiveness and system efficiency. This dedication has earned us the trust and loyalty of our clients, who remain our strongest advocates and a driving force behind new opportunities.
                   </motion.p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                     {[
-                      "Residential Complexes",
-                      "Industrial Facilities",
-                      "Healthcare Centers",
-                      "Shopping Complexes",
-                      "Mid-Rise Towers",
-                      "Commercial Spaces",
                       "Hospitality Projects",
-                      "Mixed-Use Developments"
+                      "Healthcare Centers",
+                      "Industrial Facilities",
+                      "Mixed-Use Developments",
+                      "Commercial Spaces",
+                      "Residential Complexes",
+                      "Residential Villa/ Bungalow",
+                      "Shopping Complexes & Various"
                     ].map((sector, idx) => (
                       <motion.div
                         key={idx}
@@ -170,7 +170,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="text-lg font-semibold text-gray-900 border-t-2 border-primary-200 pt-6 text-justify"
+                    className="text-lg font-semibold text-gray-900 border-t-2 border-primary-200 pt-6 text-left sm:text-justify"
                   >
                     Our mission is to ensure the seamless and successful execution of every project, leaving clients not just satisfied, but confident in the value and reliability of our solutions.
                   </motion.p>
@@ -236,7 +236,7 @@ export default function About() {
                           </div>
                         </div>
 
-                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-justify">
+                        <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-left sm:text-justify">
                           {item.text}
                         </p>
                       </div>

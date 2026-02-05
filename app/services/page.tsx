@@ -29,7 +29,7 @@ export default function Services() {
     {
       icon: <Wind className="w-12 h-12" />,
       title: "Mechanical Service",
-      subtitle: "HVAC Consulting",
+      subtitle: "Heating Ventilation and Air Conditioning (HVAC)",
       description: "Comprehensive HVAC system design and consultancy for optimal comfort, safety, and energy efficiency.",
       color: "from-green-500 to-emerald-500",
       features: [
@@ -124,7 +124,7 @@ export default function Services() {
               >
                 Our Services
               </motion.h1>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4 text-justify">
+              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4 text-left sm:text-justify">
                 Comprehensive MEPF engineering solutions for modern infrastructure
               </p>
             </MouseParallax>
@@ -186,7 +186,7 @@ export default function Services() {
                         </div>
                       </div>
                       
-                      <p className="relative z-10 mt-4 text-sm sm:text-base text-white/95 leading-relaxed text-justify">
+                      <p className="relative z-10 mt-4 text-sm sm:text-base text-white/95 leading-relaxed text-left sm:text-justify">
                         {service.description}
                       </p>
                     </div>
@@ -212,7 +212,7 @@ export default function Services() {
                             <div className={`w-6 h-6 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center shadow-sm flex-shrink-0 mt-0.5`}>
                               <CheckCircle className="w-4 h-4 text-white" />
                             </div>
-                            <p className="text-sm text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors text-justify">
+                            <p className="text-sm text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors text-left sm:text-justify">
                               {feature}
                             </p>
                           </motion.div>
@@ -255,7 +255,7 @@ export default function Services() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-lg sm:text-xl text-primary-100 mb-10 leading-relaxed max-w-2xl mx-auto text-justify">
+            <p className="text-lg sm:text-xl text-primary-100 mb-10 leading-relaxed max-w-2xl mx-auto text-left sm:text-justify">
               Let our experts help you design efficient, safe, and sustainable MEPF systems for your next project. We're here to turn your vision into reality.
             </p>
             
