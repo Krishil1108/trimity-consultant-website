@@ -39,19 +39,31 @@ export default function VendorRFP() {
     if (vendorForm.profileAttachment) formData.append('profile', vendorForm.profileAttachment)
     if (vendorForm.brochureAttachment) formData.append('brochure', vendorForm.brochureAttachment)
 
-    // TODO: Send email via API route
-    console.log('Vendor registration submitted:', vendorForm)
-    alert('Vendor registration submitted successfully! We will contact you soon.')
-    
-    // Reset form
-    setVendorForm({
-      name: '',
-      contactNo: '',
-      companyNo: '',
-      productDetails: '',
-      profileAttachment: null,
-      brochureAttachment: null
-    })
+    try {
+      const response = await fetch('/api/vendor-rfp', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+
+      alert('Vendor registration submitted successfully! We will contact you soon.')
+      
+      // Reset form
+      setVendorForm({
+        name: '',
+        contactNo: '',
+        companyNo: '',
+        productDetails: '',
+        profileAttachment: null,
+        brochureAttachment: null
+      })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Failed to submit form. Please try again or contact us directly.')
+    }
   }
 
   const handleRfpSubmit = async (e: React.FormEvent) => {
@@ -66,19 +78,31 @@ export default function VendorRFP() {
     formData.append('requirements', rfpForm.requirements)
     if (rfpForm.attachment) formData.append('attachment', rfpForm.attachment)
 
-    // TODO: Send email via API route
-    console.log('RFP submitted:', rfpForm)
-    alert('Request for Proposal submitted successfully! We will get back to you soon.')
-    
-    // Reset form
-    setRfpForm({
-      name: '',
-      email: '',
-      contactNo: '',
-      companyName: '',
-      requirements: '',
-      attachment: null
-    })
+    try {
+      const response = await fetch('/api/vendor-rfp', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+
+      alert('Request for Proposal submitted successfully! We will get back to you soon.')
+      
+      // Reset form
+      setRfpForm({
+        name: '',
+        email: '',
+        contactNo: '',
+        companyName: '',
+        requirements: '',
+        attachment: null
+      })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Failed to submit form. Please try again or contact us directly.')
+    }
   }
 
   return (
