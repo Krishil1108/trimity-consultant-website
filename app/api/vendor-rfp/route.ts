@@ -5,6 +5,15 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if API key is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured')
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact administrator.' },
+        { status: 500 }
+      )
+    }
+
     const formData = await request.formData()
     const type = formData.get('type') as string
 
@@ -63,8 +72,8 @@ export async function POST(request: NextRequest) {
       })
 
       if (error) {
-        console.error('Email sending error:', error)
-        return NextResponse.json({ error: error.message }, { status: 500 })
+        console.error('Resend API error:', JSON.stringify(error, null, 2))
+        return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 })
       }
 
       return NextResponse.json({ success: true, data })
@@ -130,8 +139,8 @@ export async function POST(request: NextRequest) {
       })
 
       if (error) {
-        console.error('Email sending error:', error)
-        return NextResponse.json({ error: error.message }, { status: 500 })
+        console.error('Resend API error:', JSON.stringify(error, null, 2))
+        return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 })
       }
 
       return NextResponse.json({ success: true, data })
@@ -141,8 +150,9 @@ export async function POST(request: NextRequest) {
     
   } catch (error) {
     console.error('API Error:', error)
+    console.error('Error details:', JSON.stringify(error, null, 2))
     return NextResponse.json(
-      { error: 'Failed to process request' },
+      { error: error instanceof Error ? error.message : 'Failed to process request' },
       { status: 500 }
     )
   }
