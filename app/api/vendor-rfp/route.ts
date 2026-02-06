@@ -23,6 +23,27 @@ export async function POST(request: NextRequest) {
       const contactNo = formData.get('contactNo') as string
       const companyNo = formData.get('companyNo') as string
       const productDetails = formData.get('productDetails') as string
+      const profileFile = formData.get('profile') as File | null
+      const brochureFile = formData.get('brochure') as File | null
+
+      // Process attachments
+      const attachments = []
+      
+      if (profileFile) {
+        const buffer = Buffer.from(await profileFile.arrayBuffer())
+        attachments.push({
+          filename: profileFile.name,
+          content: buffer,
+        })
+      }
+      
+      if (brochureFile) {
+        const buffer = Buffer.from(await brochureFile.arrayBuffer())
+        attachments.push({
+          filename: brochureFile.name,
+          content: buffer,
+        })
+      }
 
       const emailHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -56,6 +77,13 @@ export async function POST(request: NextRequest) {
                 ${productDetails}
               </div>
             </p>
+            
+            ${attachments.length > 0 ? `
+            <p style="margin: 10px 0;">
+              <strong style="color: #1f2937;">Attachments:</strong><br/>
+              ${attachments.map(a => a.filename).join(', ')}
+            </p>
+            ` : ''}
           </div>
           
           <p style="color: #6b7280; font-size: 14px; margin-top: 20px;">
@@ -69,6 +97,7 @@ export async function POST(request: NextRequest) {
         to: ['krishil.doctecq@gmail.com'],
         subject: `New Vendor Registration - ${name}`,
         html: emailHtml,
+        ...(attachments.length > 0 && { attachments }),
       })
 
       if (error) {
@@ -85,6 +114,18 @@ export async function POST(request: NextRequest) {
       const contactNo = formData.get('contactNo') as string
       const companyName = formData.get('companyName') as string
       const requirements = formData.get('requirements') as string
+      const attachmentFile = formData.get('attachment') as File | null
+
+      // Process attachment
+      const attachments = []
+      
+      if (attachmentFile) {
+        const buffer = Buffer.from(await attachmentFile.arrayBuffer())
+        attachments.push({
+          filename: attachmentFile.name,
+          content: buffer,
+        })
+      }
 
       const emailHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -123,6 +164,13 @@ export async function POST(request: NextRequest) {
                 ${requirements}
               </div>
             </p>
+            
+            ${attachments.length > 0 ? `
+            <p style="margin: 10px 0;">
+              <strong style="color: #1f2937;">Attachment:</strong><br/>
+              ${attachments.map(a => a.filename).join(', ')}
+            </p>
+            ` : ''}
           </div>
           
           <p style="color: #6b7280; font-size: 14px; margin-top: 20px;">
@@ -136,6 +184,7 @@ export async function POST(request: NextRequest) {
         to: ['krishil.doctecq@gmail.com'],
         subject: `New RFP Submission - ${name}${companyName ? ` (${companyName})` : ''}`,
         html: emailHtml,
+        ...(attachments.length > 0 && { attachments }),
       })
 
       if (error) {

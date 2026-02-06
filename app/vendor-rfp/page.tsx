@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Building2, FileText, Upload, Send, Mail, Phone, User, Package } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Building2, FileText, Upload, Send, Mail, Phone, User, Package, CheckCircle, XCircle, X } from 'lucide-react'
 import { useState } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -9,6 +9,17 @@ import ParticleField from '@/components/ParticleField'
 
 export default function VendorRFP() {
   const [activeTab, setActiveTab] = useState<'vendor' | 'rfp'>('vendor')
+  const [dialog, setDialog] = useState<{
+    show: boolean
+    type: 'success' | 'error'
+    title: string
+    message: string
+  }>({
+    show: false,
+    type: 'success',
+    title: '',
+    message: ''
+  })
   const [vendorForm, setVendorForm] = useState({
     name: '',
     contactNo: '',
@@ -49,7 +60,12 @@ export default function VendorRFP() {
         throw new Error('Failed to submit form')
       }
 
-      alert('Vendor registration submitted successfully! We will contact you soon.')
+      setDialog({
+        show: true,
+        type: 'success',
+        title: 'Registration Submitted!',
+        message: 'Thank you for your vendor registration. We will review your information and contact you soon.'
+      })
       
       // Reset form
       setVendorForm({
@@ -62,7 +78,12 @@ export default function VendorRFP() {
       })
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('Failed to submit form. Please try again or contact us directly.')
+      setDialog({
+        show: true,
+        type: 'error',
+        title: 'Submission Failed',
+        message: 'Unable to submit your registration. Please try again or contact us directly.'
+      })
     }
   }
 
@@ -88,7 +109,12 @@ export default function VendorRFP() {
         throw new Error('Failed to submit form')
       }
 
-      alert('Request for Proposal submitted successfully! We will get back to you soon.')
+      setDialog({
+        show: true,
+        type: 'success',
+        title: 'RFP Submitted!',
+        message: 'Thank you for your Request for Proposal. Our team will review your requirements and get back to you soon.'
+      })
       
       // Reset form
       setRfpForm({
@@ -101,7 +127,12 @@ export default function VendorRFP() {
       })
     } catch (error) {
       console.error('Error submitting form:', error)
-      alert('Failed to submit form. Please try again or contact us directly.')
+      setDialog({
+        show: true,
+        type: 'error',
+        title: 'Submission Failed',
+        message: 'Unable to submit your RFP. Please try again or contact us directly.'
+      })
     }
   }
 
@@ -435,6 +466,82 @@ export default function VendorRFP() {
           )}
         </div>
       </section>
+
+      {/* Custom Success/Error Dialog */}
+      <AnimatePresence>
+        {dialog.show && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDialog({ ...dialog, show: false })}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            >
+              {/* Dialog */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: "spring", duration: 0.5 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8"
+              >
+                {/* Close button */}
+                <button
+                  onClick={() => setDialog({ ...dialog, show: false })}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                >
+                  <X className="w-5 h-5 text-gray-600" />
+                </button>
+
+                {/* Icon */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                  className="flex justify-center mb-6"
+                >
+                  {dialog.type === 'success' ? (
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                      <CheckCircle className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    </div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                      <XCircle className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    </div>
+                  )}
+                </motion.div>
+
+                {/* Content */}
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {dialog.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    {dialog.message}
+                  </p>
+                  
+                  {/* Action button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setDialog({ ...dialog, show: false })}
+                    className={`w-full px-6 py-3 rounded-xl font-semibold text-white shadow-lg transition-all ${
+                      dialog.type === 'success'
+                        ? 'bg-gradient-to-r from-green-500 to-green-600 hover:shadow-green-200'
+                        : 'bg-gradient-to-r from-red-500 to-red-600 hover:shadow-red-200'
+                    }`}
+                  >
+                    Got it
+                  </motion.button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>
