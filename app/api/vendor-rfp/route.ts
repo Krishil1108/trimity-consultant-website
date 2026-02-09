@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
 
       const { data, error } = await resend.emails.send({
         from: 'Vendor Registration <onboarding@resend.dev>',
-        to: ['krishil.doctecq@gmail.com'],
+        to: ['trimitybackoffice@gmail.com'],
         subject: `New Vendor Registration - ${name}`,
         html: emailHtml,
         ...(attachments.length > 0 && { attachments }),
@@ -181,7 +181,7 @@ export async function POST(request: NextRequest) {
 
       const { data, error } = await resend.emails.send({
         from: 'RFP Submissions <onboarding@resend.dev>',
-        to: ['krishil.doctecq@gmail.com'],
+        to: ['trimitybackoffice@gmail.com'],
         subject: `New RFP Submission - ${name}${companyName ? ` (${companyName})` : ''}`,
         html: emailHtml,
         ...(attachments.length > 0 && { attachments }),
