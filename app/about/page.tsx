@@ -209,7 +209,7 @@ export default function About() {
                       {/* Decorative Elements */}
                       <motion.div
                         className="absolute -top-10 -right-10 w-40 h-40 bg-white/30 rounded-full blur-3xl"
-                        animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+                        animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 10, repeat: Infinity }}
                       />
 
@@ -452,7 +452,7 @@ export default function About() {
                     {/* Decorative circle */}
                     <motion.div
                       className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${member.color} opacity-10 rounded-full blur-2xl`}
-                      animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+                      animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 8, repeat: Infinity }}
                     />
 
@@ -460,7 +460,7 @@ export default function About() {
                       {/* Avatar Placeholder */}
                       <motion.div
                         className={`w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       >
                         {member.name.split(' ').map(n => n[0]).join('')}

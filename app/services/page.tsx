@@ -242,8 +242,6 @@ export default function Services() {
           >
             <motion.div
               className="inline-block mb-6"
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
             >
               <Rocket className="w-16 h-16 text-white" />
             </motion.div>

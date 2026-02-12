@@ -439,8 +439,8 @@ export default function Home() {
                   <div className="flex items-start space-x-4">
                     <motion.div
                       className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${location.color} flex items-center justify-center text-2xl sm:text-3xl shadow-lg`}
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
                     >
                       {location.icon}
                     </motion.div>
@@ -544,8 +544,8 @@ export default function Home() {
                   {/* Icon */}
                   <motion.div
                     className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${link.gradient} text-white mb-4 sm:mb-6 shadow-lg`}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
                     {link.icon}
                   </motion.div>
@@ -702,8 +702,8 @@ export default function Home() {
           >
             <motion.div
               className="inline-block mb-6 sm:mb-8"
-              whileHover={{ scale: 1.1, rotate: 360 }}
-              transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-xl">
                 <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
