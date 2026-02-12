@@ -294,8 +294,20 @@ export default function About() {
                     {/* Founder Intro */}
                     <div className="mb-6 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100">
                       <p className="text-gray-700 leading-relaxed text-center">
-                        <span className="font-semibold text-gray-900">Visionary Founder & Leader</span> of Trimity Consultants with expertise in value engineering, timely project delivery, and client-centric solutions.
+                        <span className="font-semibold text-gray-900">Founder of Trimity Consultants</span> and an IGBC-Accredited Professional, is a Civil Engineer with 17+ years of experience in utility consultancy.
                       </p>
+                    </div>
+
+                    {/* Key Stats */}
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="text-center p-4 rounded-xl bg-gradient-to-br from-primary-50 to-blue-50">
+                        <div className="text-3xl font-bold text-primary-600">450+</div>
+                        <div className="text-sm text-gray-600 font-semibold">Projects Led</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-gradient-to-br from-primary-50 to-blue-50">
+                        <div className="text-3xl font-bold text-primary-600">17+</div>
+                        <div className="text-sm text-gray-600 font-semibold">Years Experience</div>
+                      </div>
                     </div>
 
                     {/* Key Highlights */}
@@ -305,11 +317,12 @@ export default function About() {
                         Leadership Excellence
                       </h4>
                       {[
-                        "Expert in MEPF design & execution across diverse sectors",
-                        "Strong focus on effective communication & team collaboration",
-                        "Hands-on involvement in design workflows & quality control",
-                        "Member of Indian Plumbing & Fire Safety Associations",
-                        "Committed to sustainable building practices (IGBC-AP)"
+                        "Led 450+ projects with focus on quality & communication",
+                        "Civil Engineer specializing in utility consultancy",
+                        "Member of Indian Plumbing Association",
+                        "Member of Fire & Safety Association of India",
+                        "Committed to timely delivery & client satisfaction",
+                        "IGBC-Accredited Professional for sustainable practices"
                       ].map((item, idx) => (
                         <motion.div
                           key={idx}
@@ -345,6 +358,241 @@ export default function About() {
               </motion.div>
             </MouseParallax>
           </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-blue-50 to-primary-50">
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.h2 
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+              animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            >
+              <span className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-600 bg-clip-text text-transparent" style={{ backgroundSize: '200% auto' }}>
+                The Faces Behind the Function
+              </span>
+            </motion.h2>
+            <motion.p 
+              className="text-xl sm:text-2xl text-gray-600 font-semibold"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              Core Team, Core Values
+            </motion.p>
+            <motion.div
+              className="w-24 h-1 bg-gradient-to-r from-primary-500 to-blue-600 mx-auto mt-6 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 96 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+          </motion.div>
+
+          {/* Founder Highlight */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 max-w-4xl mx-auto"
+          >
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+              <div className="bg-gradient-to-r from-primary-600 to-blue-600 px-6 py-4">
+                <h3 className="text-2xl font-bold text-white text-center">Leadership</h3>
+              </div>
+              <div className="p-8 sm:p-10">
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  <motion.div
+                    className="flex-shrink-0"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-1 rounded-full bg-gradient-to-r from-primary-500 to-blue-600">
+                      <div className="bg-white rounded-full p-1">
+                        <img 
+                          src="/projects/founder.jpg"
+                          alt="Mr. Ketul Lathia"
+                          className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                  
+                  <div className="flex-1 text-center md:text-left">
+                    <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                      Mr. Ketul Lathia
+                    </h4>
+                    <div className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold mb-4">
+                      FOUNDER | IGBC-Accredited Professional
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-base">
+                      IGBC-Accredited Professional, is a Civil Engineer with <span className="font-semibold text-primary-600">17+ years of experience</span> in utility consultancy. He has led <span className="font-semibold text-primary-600">450+ projects</span> with a focus on quality, communication, and timely delivery. He is also a member of the <span className="font-semibold">Indian Plumbing Association</span> and <span className="font-semibold">Fire & Safety Association of India</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Core Team Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-900">
+              Our Core Team
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {[
+                {
+                  name: "Mrs. Binjal Lathia",
+                  role: "Accounts & Compliance",
+                  color: "from-pink-500 to-rose-500",
+                  bgColor: "from-pink-50 to-rose-50"
+                },
+                {
+                  name: "Mr. Piyush Diwan",
+                  role: "Project Manager",
+                  color: "from-blue-500 to-cyan-500",
+                  bgColor: "from-blue-50 to-cyan-50"
+                },
+                {
+                  name: "Mr. Vraj Patel",
+                  role: "Project Co-ordinator",
+                  color: "from-purple-500 to-indigo-500",
+                  bgColor: "from-purple-50 to-indigo-50"
+                },
+                {
+                  name: "Mr. Darshit Darji",
+                  role: "Junior Engineer",
+                  color: "from-green-500 to-emerald-500",
+                  bgColor: "from-green-50 to-emerald-50"
+                },
+                {
+                  name: "Ms. Kinjal Solanki",
+                  role: "Admin & Operation",
+                  color: "from-orange-500 to-amber-500",
+                  bgColor: "from-orange-50 to-amber-50"
+                }
+              ].map((member, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="group"
+                >
+                  <div className={`relative bg-gradient-to-br ${member.bgColor} rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden h-full`}>
+                    {/* Decorative circle */}
+                    <motion.div
+                      className={`absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br ${member.color} opacity-10 rounded-full blur-2xl`}
+                      animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+                      transition={{ duration: 8, repeat: Infinity }}
+                    />
+
+                    <div className="relative z-10 text-center">
+                      {/* Avatar Placeholder */}
+                      <motion.div
+                        className={`w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </motion.div>
+
+                      <h4 className="text-xl font-bold text-gray-900 mb-2">
+                        {member.name}
+                      </h4>
+                      
+                      <div className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${member.color} text-white text-sm font-semibold shadow-md`}>
+                        {member.role}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* +5 Others Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="group"
+              >
+                <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 overflow-hidden h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <motion.div
+                      className="text-6xl font-bold bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent mb-2"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      +5
+                    </motion.div>
+                    <p className="text-xl font-semibold text-gray-700">
+                      Other Team Members
+                    </p>
+                    <p className="text-sm text-gray-600 mt-2">
+                      Supporting our mission
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Team Values */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-16 max-w-4xl mx-auto"
+          >
+            <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100">
+              <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-gray-900">
+                What Drives Us
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {[
+                  { icon: "🤝", title: "Collaboration", desc: "Working together for excellence" },
+                  { icon: "💡", title: "Innovation", desc: "Always pushing boundaries" },
+                  { icon: "🎯", title: "Dedication", desc: "Committed to quality delivery" }
+                ].map((value, idx) => (
+                  <motion.div
+                    key={idx}
+                    className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white hover:from-primary-50 hover:to-blue-50 transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                  >
+                    <div className="text-4xl mb-3">{value.icon}</div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{value.title}</h4>
+                    <p className="text-sm text-gray-600">{value.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
