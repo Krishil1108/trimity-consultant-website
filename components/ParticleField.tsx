@@ -33,14 +33,14 @@ export default function ParticleField() {
     window.addEventListener('resize', resize)
 
     // Initialize particles
-    const particleCount = 50
+    const particleCount = 20
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.5,
       vy: (Math.random() - 0.5) * 0.5,
-      size: Math.random() * 3 + 1.5,
-      opacity: Math.random() * 0.6 + 0.4
+      size: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.3 + 0.15
     }))
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -59,10 +59,10 @@ export default function ParticleField() {
         const dy = mouseRef.current.y - particle.y
         const distance = Math.sqrt(dx * dx + dy * dy)
         
-        if (distance < 150) {
-          const force = (150 - distance) / 150
-          particle.vx -= (dx / distance) * force * 0.2
-          particle.vy -= (dy / distance) * force * 0.2
+        if (distance < 100) {
+          const force = (100 - distance) / 100
+          particle.vx -= (dx / distance) * force * 0.15
+          particle.vy -= (dy / distance) * force * 0.15
         }
 
         // Update position
@@ -92,12 +92,12 @@ export default function ParticleField() {
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 120) {
+          if (distance < 100) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - distance / 120) * 0.3})`
-            ctx.lineWidth = 0.8
+            ctx.strokeStyle = `rgba(59, 130, 246, ${(1 - distance / 100) * 0.15})`
+            ctx.lineWidth = 0.5
             ctx.stroke()
           }
         })

@@ -137,12 +137,12 @@ export default function VendorRFP() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white relative">
       <Navigation />
       <ParticleField />
 
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden relative">
+      <section className="relative z-10 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{
@@ -188,7 +188,7 @@ export default function VendorRFP() {
       </section>
 
       {/* Tab Navigation */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="relative z-10 py-8 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="flex gap-4 justify-center">
             <motion.button
@@ -222,7 +222,7 @@ export default function VendorRFP() {
       </section>
 
       {/* Forms Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {activeTab === 'vendor' ? (
             <motion.div
