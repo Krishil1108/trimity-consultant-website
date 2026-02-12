@@ -111,10 +111,9 @@ export default function Contact() {
                   <motion.div 
                     className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white mx-auto mb-6 relative`}
                     animate={{
-                      rotate: hoveredCard === index ? 360 : 0,
                       scale: hoveredCard === index ? 1.1 : 1
                     }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.3 }}
                   >
                     {item.icon}
                     <motion.div
