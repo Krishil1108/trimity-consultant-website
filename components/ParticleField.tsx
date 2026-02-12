@@ -33,7 +33,7 @@ export default function ParticleField() {
     window.addEventListener('resize', resize)
 
     // Initialize particles
-    const particleCount = 20
+    const particleCount = 50
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
