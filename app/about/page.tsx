@@ -399,52 +399,6 @@ export default function About() {
             />
           </motion.div>
 
-          {/* Founder Highlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16 max-w-4xl mx-auto"
-          >
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-              <div className="bg-gradient-to-r from-primary-600 to-blue-600 px-6 py-4">
-                <h3 className="text-2xl font-bold text-white text-center">Leadership</h3>
-              </div>
-              <div className="p-8 sm:p-10">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <motion.div
-                    className="flex-shrink-0"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="p-1 rounded-full bg-gradient-to-r from-primary-500 to-blue-600">
-                      <div className="bg-white rounded-full p-1">
-                        <img 
-                          src="/projects/founder.jpg"
-                          alt="Mr. Ketul Lathia"
-                          className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
-                  
-                  <div className="flex-1 text-center md:text-left">
-                    <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                      Mr. Ketul Lathia
-                    </h4>
-                    <div className="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold mb-4">
-                      FOUNDER | IGBC-Accredited Professional
-                    </div>
-                    <p className="text-gray-700 leading-relaxed text-base">
-                      IGBC-Accredited Professional, is a Civil Engineer with <span className="font-semibold text-primary-600">17+ years of experience</span> in utility consultancy. He has led <span className="font-semibold text-primary-600">450+ projects</span> with a focus on quality, communication, and timely delivery. He is also a member of the <span className="font-semibold">Indian Plumbing Association</span> and <span className="font-semibold">Fire & Safety Association of India</span>.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Core Team Grid */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
