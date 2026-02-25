@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Building2, Target, Rocket, Award, CheckCircle } from 'lucide-react'
+import { Building2, Target, Rocket, Award, CheckCircle, Zap, Droplets, Flame, Wind, Cpu, Wrench } from 'lucide-react'
 import { useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -357,6 +357,185 @@ export default function About() {
                 </motion.div>
               </motion.div>
             </MouseParallax>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Company Timeline ── */}
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/40 via-white to-blue-50/40" />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent mb-3">
+              Our Journey
+            </h2>
+            <p className="text-gray-500 text-base sm:text-lg">Milestones that define who we are</p>
+            <motion.div
+              className="w-20 h-1 bg-gradient-to-r from-primary-500 to-blue-600 mx-auto mt-4 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+            />
+          </motion.div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Vertical line */}
+            <motion.div
+              className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-blue-500 to-primary-300 rounded-full hidden md:block"
+              initial={{ scaleY: 0, originY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+            />
+
+            <div className="space-y-10 md:space-y-14">
+              {[
+                {
+                  year: "2006",
+                  title: "Founder's Career Begins",
+                  desc: "Mr. Ketul Lathia starts his professional journey in utility consultancy, building expertise across MEPF disciplines with 17+ years of hands-on experience.",
+                  side: "left",
+                  color: "from-sky-500 to-cyan-500"
+                },
+                {
+                  year: "2019",
+                  title: "Trimity Consultants Founded",
+                  desc: "Trimity Consultants is established in Ahmedabad with a bold vision — to deliver world-class MEPF consulting services across India and beyond.",
+                  side: "right",
+                  color: "from-primary-500 to-blue-600"
+                },
+                {
+                  year: "2021",
+                  title: "100+ Projects Milestone",
+                  desc: "Crossed the 100-project landmark, serving clients across residential, commercial, hospitality, and healthcare sectors with consistent excellence.",
+                  side: "left",
+                  color: "from-violet-500 to-purple-600"
+                },
+                {
+                  year: "2022",
+                  title: "International Expansion",
+                  desc: "Successfully delivered projects in Africa, marking Trimity's entry into the international arena and expanding its global footprint.",
+                  side: "right",
+                  color: "from-emerald-500 to-green-600"
+                },
+                {
+                  year: "2024",
+                  title: "700+ Projects Delivered",
+                  desc: "A team of 10+ passionate professionals, 700+ projects completed, and an unwavering commitment to engineering excellence — with many more milestones ahead.",
+                  side: "left",
+                  color: "from-primary-600 to-primary-800"
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.55 }}
+                  className={`flex items-center gap-6 md:gap-0 ${item.side === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'} flex-row`}
+                >
+                  {/* Content */}
+                  <div className={`flex-1 ${item.side === 'right' ? 'md:pl-10 text-left' : 'md:pr-10 md:text-right text-left'}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.02, y: -3 }}
+                      className="bg-white rounded-2xl p-5 sm:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 inline-block w-full"
+                    >
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${item.color} mb-2`}>
+                        {item.year}
+                      </span>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* Center dot */}
+                  <div className="relative flex-shrink-0 hidden md:flex items-center justify-center w-12">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 + 0.2, type: 'spring', stiffness: 300 }}
+                      className={`w-5 h-5 rounded-full bg-gradient-to-br ${item.color} ring-4 ring-white shadow-lg z-10`}
+                    />
+                  </div>
+
+                  {/* Spacer for opposite side */}
+                  <div className="flex-1 hidden md:block" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Expertise Bars ── */}
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-primary-900 to-gray-900 text-white overflow-hidden">
+        {/* Decorative blobs */}
+        <motion.div
+          className="absolute -top-20 -left-20 w-72 h-72 bg-primary-600/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], x: [0, 20, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute -bottom-20 -right-20 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.3, 1], x: [0, -20, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+        />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Areas of Expertise</h2>
+            <p className="text-primary-300 text-base sm:text-lg">Deep specialisation across every discipline of MEPF consultancy</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
+            {[
+              { icon: Droplets, label: "Plumbing & Sanitation Design", pct: 97, color: "from-cyan-400 to-blue-500" },
+              { icon: Flame, label: "Fire Fighting Systems", pct: 95, color: "from-orange-400 to-red-500" },
+              { icon: Wind, label: "HVAC Engineering", pct: 90, color: "from-sky-400 to-indigo-500" },
+              { icon: Zap, label: "Electrical Systems", pct: 88, color: "from-yellow-400 to-amber-500" },
+              { icon: Wrench, label: "Project Management", pct: 96, color: "from-green-400 to-emerald-500" },
+              { icon: Cpu, label: "BIM & CAD Coordination", pct: 85, color: "from-violet-400 to-purple-500" },
+            ].map((skill, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="group"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <skill.icon className="w-4 h-4 text-primary-300" />
+                    <span className="text-sm font-semibold text-gray-200">{skill.label}</span>
+                  </div>
+                  <span className="text-sm font-bold text-primary-300">{skill.pct}%</span>
+                </div>
+                <div className="h-2.5 bg-white/10 rounded-full overflow-hidden">
+                  <motion.div
+                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
+                    initial={{ width: '0%' }}
+                    whileInView={{ width: `${skill.pct}%` }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 + 0.3, duration: 1.1, ease: 'easeOut' }}
+                  />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
