@@ -385,7 +385,7 @@ export default function Home() {
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 2 }}
                 >
-                  🇿🇦 Africa
+                  ZA Africa
                 </motion.div>
               </div>
             </motion.div>
@@ -407,7 +407,7 @@ export default function Home() {
                 },
                 {
                   country: "Africa",
-                  icon: "�🇦",
+                  icon: "ZA",
                   color: "from-blue-400 to-blue-600",
                   projects: "15+",
                   description: "Expanding engineering solutions across African infrastructure"
