@@ -381,18 +381,11 @@ export default function Home() {
                   🇮🇳 India
                 </motion.div>
                 <motion.div
-                  className="absolute top-1/3 left-0 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                >
-                  🇸🇦 Saudi Arabia
-                </motion.div>
-                <motion.div
                   className="absolute bottom-12 right-8 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 2 }}
                 >
-                  🇿🇦 South Africa
+                  🌍 Africa
                 </motion.div>
               </div>
             </motion.div>
@@ -413,15 +406,8 @@ export default function Home() {
                   description: "Leading MEPF projects across residential, commercial, and industrial sectors"
                 },
                 {
-                  country: "Saudi Arabia",
-                  icon: "🇸🇦",
-                  color: "from-green-400 to-green-600",
-                  projects: "35+",
-                  description: "International projects delivering excellence in the Middle East"
-                },
-                {
-                  country: "South Africa",
-                  icon: "🇿🇦",
+                  country: "Africa",
+                  icon: "🌍",
                   color: "from-blue-400 to-blue-600",
                   projects: "15+",
                   description: "Expanding engineering solutions across African infrastructure"

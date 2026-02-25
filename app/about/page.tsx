@@ -107,7 +107,7 @@ export default function About() {
                     viewport={{ once: true }}
                     className="text-lg text-left sm:text-justify"
                   >
-                    <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India and internationally, with successful projects in South Africa and Saudi Arabia, specializing in comprehensive MEPF design, coordination, and execution.
+                    <span className="font-semibold text-primary-600">Trimity Consultants</span>, based in Ahmedabad, proudly delivers expert consulting services across India and internationally, with successful projects in Africa, specializing in comprehensive MEPF design, coordination, and execution.
                   </motion.p>
 
                   <motion.div

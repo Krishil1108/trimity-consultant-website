@@ -29,8 +29,8 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/share/14aiejY2HNK/', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/trimity_consultants?utm_source=qr&igsh=MW53MWw4bjMwdjBkdw==', label: 'Instagram' },
   ]
 
   return (
@@ -48,7 +48,7 @@ export default function Footer() {
                 Trimity Consultants
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
-                Delivering world-class MEPF consulting services across India, Saudi Arabia, and South Africa. Engineering excellence since 2019.
+                Delivering world-class MEPF consulting services across India and Africa. Engineering excellence since 2019.
               </p>
               
               {/* Contact Info */}
@@ -165,6 +165,8 @@ export default function Footer() {
                   key={idx}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-500 flex items-center justify-center transition-all group"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
