@@ -9,6 +9,7 @@ import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
 import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
+import AIAssistant from '@/components/AIAssistant'
 
 // Animated count-up component
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
@@ -261,46 +262,25 @@ export default function Home() {
                   }}
                 />
 
-                {/* Floating stat cards in orbital pattern */}
-                <motion.div
-                  className="absolute top-0 right-0 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
-                >
-                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={700} suffix="+" /></div>
-                  <div className="text-sm text-gray-600">Projects</div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-0 right-20 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-                  whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
-                >
-                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={18} suffix="+" /></div>
-                  <div className="text-sm text-gray-600">Years</div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute top-20 left-0 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                  whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
-                >
-                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={50} suffix="+" /></div>
-                  <div className="text-sm text-gray-600">Satisfied Clients</div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-20 left-10 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ y: [0, 15, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
-                  whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
-                >
-                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={100} suffix="%" /></div>
-                  <div className="text-sm text-gray-600">Quality</div>
-                </motion.div>
+                {/* Floating stat cards — 3D tilt on hover */}
+                {[
+                  { pos: 'absolute top-0 right-0', val: 700, sfx: '+', label: 'Projects', delay: 0, dy: [0,-20,0] },
+                  { pos: 'absolute bottom-0 right-20', val: 18, sfx: '+', label: 'Years', delay: 0.5, dy: [0,20,0] },
+                  { pos: 'absolute top-20 left-0', val: 50, sfx: '+', label: 'Satisfied Clients', delay: 1, dy: [0,-15,0] },
+                  { pos: 'absolute bottom-20 left-10', val: 100, sfx: '%', label: 'Quality', delay: 1.5, dy: [0,15,0] },
+                ].map((card, i) => (
+                  <motion.div
+                    key={i}
+                    className={`${card.pos} bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100 cursor-default`}
+                    animate={{ y: card.dy }}
+                    transition={{ duration: 4, repeat: Infinity, delay: card.delay }}
+                    whileHover={{ scale: 1.12, rotateX: 6, rotateY: -6, boxShadow: '0 25px 50px rgba(59,130,246,0.35)' }}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={card.val} suffix={card.sfx} /></div>
+                    <div className="text-sm text-gray-600">{card.label}</div>
+                  </motion.div>
+                ))}
 
                 {/* Connecting lines animation */}
                 <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
@@ -333,6 +313,46 @@ export default function Home() {
         </div>
         </div>
       </section>
+
+      {/* AI-Powered Marquee Strip */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-primary-900 to-slate-900 py-3 border-y border-primary-700/30">
+        {/* fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
+        <motion.div
+          className="flex gap-8 whitespace-nowrap"
+          animate={{ x: [0, -2400] }}
+          transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 28, ease: 'linear' } }}
+        >
+          {[...Array(3)].map((_, si) => (
+            <div key={si} className="flex gap-8">
+              {[
+                { icon: '✦', text: 'AI-Assisted Design Coordination' },
+                { icon: '🏗️', text: 'BIM & Digital Twin Integration' },
+                { icon: '🌱', text: 'IGBC Accredited Sustainable Design' },
+                { icon: '✦', text: '700+ Projects Delivered' },
+                { icon: '⚡', text: 'MEPF Engineering Excellence' },
+                { icon: '🎯', text: '18+ Years of Industry Expertise' },
+                { icon: '✦', text: 'Smart Building Solutions' },
+                { icon: '🌍', text: 'India & Africa Operations' },
+              ].map((item, i) => (
+                <span key={i} className="inline-flex items-center gap-2 text-sm font-medium text-primary-200">
+                  <span className="text-primary-400 text-xs">{item.icon}</span>
+                  {item.text}
+                  <span className="text-primary-600 mx-2">|</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Wave Divider */}
+      <div className="relative h-10 overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800">
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full" fill="white">
+          <path d="M0,40 L0,20 Q360,0 720,20 Q1080,40 1440,20 L1440,40 Z" />
+        </svg>
+      </div>
 
       {/* Global Reach Section */}
       <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 overflow-hidden">
@@ -496,6 +516,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Wave Divider */}
+      <div className="relative h-12 overflow-hidden bg-gray-50">
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" className="absolute top-0 w-full h-full" fill="none">
+          <path d="M0,0 Q360,48 720,24 Q1080,0 1440,32 L1440,0 Z" fill="url(#waveGradient)" />
+          <defs>
+            <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#0369a1" />
+              <stop offset="50%" stopColor="#0284c7" />
+              <stop offset="100%" stopColor="#0369a1" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
       {/* Quick Links Section */}
       <section className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -821,6 +855,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <AIAssistant />
 
       <Footer />
 
