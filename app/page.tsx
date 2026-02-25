@@ -381,11 +381,11 @@ export default function Home() {
                   🇮🇳 India
                 </motion.div>
                 <motion.div
-                  className="absolute bottom-12 right-8 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                  className="absolute bottom-8 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 2 }}
                 >
-                  🌍 Africa
+                  🇿🇦 Africa
                 </motion.div>
               </div>
             </motion.div>
@@ -407,7 +407,7 @@ export default function Home() {
                 },
                 {
                   country: "Africa",
-                  icon: "🌍",
+                  icon: "�🇦",
                   color: "from-blue-400 to-blue-600",
                   projects: "15+",
                   description: "Expanding engineering solutions across African infrastructure"
