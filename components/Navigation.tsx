@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -10,6 +10,9 @@ import { Menu, X } from 'lucide-react'
 export default function Navigation() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -23,6 +26,12 @@ export default function Navigation() {
   ]
 
   return (
+    <>
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary-500 via-blue-500 to-primary-600 z-[60] origin-left"
+        style={{ scaleX }}
+      />
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -116,5 +125,6 @@ export default function Navigation() {
         )}
       </AnimatePresence>
     </motion.nav>
+    </>
   )
 }

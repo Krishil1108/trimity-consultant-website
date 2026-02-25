@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Building2, ArrowRight, Zap, Droplets, Wind, Flame } from 'lucide-react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { Building2, ArrowRight, Zap, Droplets, Wind, Flame, ChevronUp } from 'lucide-react'
 import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 import Navigation from '@/components/Navigation'
@@ -10,12 +10,40 @@ import ParticleField from '@/components/ParticleField'
 import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
 
+// Animated count-up component
+function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        let start = 0
+        const step = Math.max(1, Math.ceil(target / 60))
+        const timer = setInterval(() => {
+          start += step
+          if (start >= target) { setCount(target); clearInterval(timer) }
+          else { setCount(start) }
+        }, 25)
+        observer.disconnect()
+      }
+    }, { threshold: 0.5 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [target])
+  return <div ref={ref}>{count}{suffix}</div>
+}
+
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [showScrollTop, setShowScrollTop] = useState(false)
+  const cyclingServices = ['MEPF Design', 'Plumbing Systems', 'Fire Safety', 'HVAC Solutions', 'Electrical Design']
+  const [activeService, setActiveService] = useState(0)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -23,6 +51,17 @@ export default function Home() {
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => setActiveService(i => (i + 1) % cyclingServices.length), 2500)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 500)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   const services = [
     { 
@@ -104,17 +143,34 @@ export default function Home() {
                 </motion.h1>
               </MouseParallax>
 
-              <motion.p 
-                className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed text-left sm:text-justify"
+              <motion.div
+                className="mb-6 sm:mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                Since 2019, we've been your one-stop destination for comprehensive engineering solutions. 
-                At Trimity, we bridge the coordination gap between Information to Practical solution. 
-                While plumbing services remain our core expertise, we also deliver unified solutions through 
-                our trusted associates in electrical, HVAC, and fire-fighting systems.
-              </motion.p>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed text-left sm:text-justify mb-3">
+                  Since 2019, we've been your one-stop destination for comprehensive engineering solutions. 
+                  At Trimity, we bridge the coordination gap between Information to Practical solution.
+                </p>
+                <div className="flex items-center gap-3 text-base sm:text-lg font-semibold text-gray-700">
+                  <span>Experts in</span>
+                  <span className="relative inline-block overflow-hidden h-8">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={activeService}
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -30, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        className="absolute whitespace-nowrap px-3 py-0.5 rounded-full bg-gradient-to-r from-primary-500 to-blue-600 text-white text-sm sm:text-base shadow-md"
+                      >
+                        {cyclingServices[activeService]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                </div>
+              </motion.div>
 
               <motion.div 
                 className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
@@ -208,49 +264,41 @@ export default function Home() {
                 {/* Floating stat cards in orbital pattern */}
                 <motion.div
                   className="absolute top-0 right-0 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ 
-                    y: [0, -20, 0],
-                  }}
+                  animate={{ y: [0, -20, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">700+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={700} suffix="+" /></div>
                   <div className="text-sm text-gray-600">Projects</div>
                 </motion.div>
 
                 <motion.div
                   className="absolute bottom-0 right-20 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ 
-                    y: [0, 20, 0],
-                  }}
+                  animate={{ y: [0, 20, 0] }}
                   transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">18+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={18} suffix="+" /></div>
                   <div className="text-sm text-gray-600">Years</div>
                 </motion.div>
 
                 <motion.div
                   className="absolute top-20 left-0 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ 
-                    y: [0, -15, 0],
-                  }}
+                  animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, delay: 1 }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">50+</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={50} suffix="+" /></div>
                   <div className="text-sm text-gray-600">Satisfied Clients</div>
                 </motion.div>
 
                 <motion.div
                   className="absolute bottom-20 left-10 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-primary-100"
-                  animate={{ 
-                    y: [0, 15, 0],
-                  }}
+                  animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
                   whileHover={{ scale: 1.1, boxShadow: "0 25px 50px rgba(59, 130, 246, 0.3)" }}
                 >
-                  <div className="text-4xl font-bold text-primary-600 mb-1">100%</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-1"><AnimatedCounter target={100} suffix="%" /></div>
                   <div className="text-sm text-gray-600">Quality</div>
                 </motion.div>
 
@@ -775,6 +823,25 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      {/* Scroll to Top Button */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.1, boxShadow: '0 10px 30px rgba(59,130,246,0.4)' }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-blue-600 text-white shadow-xl flex items-center justify-center"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </main>
   )
 }
