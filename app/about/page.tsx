@@ -410,34 +410,33 @@ export default function About() {
               {[
                 {
                   name: "Mrs. Binjal Lathia",
-                  role: "Accounts & Compliance",
+                  role: "Admin, Operations, Accounts & Compliance",
                   color: "from-pink-500 to-rose-500",
-                  bgColor: "from-pink-50 to-rose-50"
+                  bgColor: "from-pink-50 to-rose-50",
+                  photo: "/team/binjal.jpg"
                 },
                 {
                   name: "Mr. Piyush Diwan",
                   role: "Project Manager",
                   color: "from-blue-500 to-cyan-500",
-                  bgColor: "from-blue-50 to-cyan-50"
+                  bgColor: "from-blue-50 to-cyan-50",
+                  photo: "/team/piyush.jpg"
                 },
                 {
                   name: "Mr. Vraj Patel",
                   role: "Project Co-ordinator",
                   color: "from-purple-500 to-indigo-500",
-                  bgColor: "from-purple-50 to-indigo-50"
+                  bgColor: "from-purple-50 to-indigo-50",
+                  photo: "/team/vraj.png"
                 },
                 {
                   name: "Mr. Darshit Darji",
                   role: "Junior Engineer",
                   color: "from-green-500 to-emerald-500",
-                  bgColor: "from-green-50 to-emerald-50"
+                  bgColor: "from-green-50 to-emerald-50",
+                  photo: null
                 },
-                {
-                  name: "Ms. Kinjal Solanki",
-                  role: "Admin & Operation",
-                  color: "from-orange-500 to-amber-500",
-                  bgColor: "from-orange-50 to-amber-50"
-                }
+
               ].map((member, idx) => (
                 <motion.div
                   key={idx}
@@ -457,13 +456,23 @@ export default function About() {
                     />
 
                     <div className="relative z-10 text-center">
-                      {/* Avatar Placeholder */}
+                      {/* Avatar */}
                       <motion.div
-                        className={`w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}
-                        whileHover={{ scale: 1.1 }}
+                        className={`w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden shadow-lg ring-4 ring-white bg-gradient-to-br ${member.color}`}
+                        whileHover={{ scale: 1.08 }}
                         transition={{ duration: 0.3 }}
                       >
-                        {member.name.split(' ').map(n => n[0]).join('')}
+                        {member.photo ? (
+                          <img
+                            src={member.photo}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-top"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-white text-2xl font-bold">
+                            {member.name.split(' ').map(n => n[0]).join('')}
+                          </div>
+                        )}
                       </motion.div>
 
                       <h4 className="text-xl font-bold text-gray-900 mb-2">
