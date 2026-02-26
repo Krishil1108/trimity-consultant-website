@@ -164,7 +164,7 @@ export default function Contact() {
                   className="h-full"
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.736434893473!2d72.56746927477057!3d23.03344761592329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e85888aa05d2d%3A0xfb897f2fc109159e!2sYash%20Anant!5e0!3m2!1sen!2sin!4v1770285369961!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.7364348934548!2d72.56746927477057!3d23.03344761592329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e850012f70905%3A0x7f2d3941fce84972!2sTrimity%20consultants!5e0!3m2!1sen!2sin!4v1772123993824!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -208,7 +208,7 @@ export default function Contact() {
                   </div>
 
                   <motion.a
-                    href="https://maps.google.com/?q=1402-B+Yash+Anant+Ashram+Road+Navrangpura+Ahmedabad+Gujarat+380009"
+                    href="https://maps.google.com/?q=Trimity+consultants+Ahmedabad"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
