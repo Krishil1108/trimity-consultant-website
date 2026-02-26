@@ -21,7 +21,6 @@ export default function Navigation() {
     { name: 'Projects', path: '/projects' },
     { name: 'Contact us', path: '/contact' },
     { name: 'Vendor & RFP', path: '/vendor-rfp' },
-    { name: 'Career', path: '/career' },
     { name: 'Blogs', path: '/blogs' },
   ]
 

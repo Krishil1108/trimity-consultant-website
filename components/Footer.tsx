@@ -21,7 +21,6 @@ export default function Footer() {
       { name: 'Quality Assurance', href: '/services' },
     ],
     resources: [
-      { name: 'Career', href: '/career' },
       { name: 'Blogs', href: '/blogs' },
       { name: 'Contact', href: '/contact' },
     ],
