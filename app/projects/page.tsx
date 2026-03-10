@@ -5,7 +5,7 @@ import { useState, useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import { Building2, Home, Factory, HeartPulse, LayoutGrid, Globe, Award, TrendingUp, MapPin, Images } from 'lucide-react'
+import { Building2, Home, Factory, HeartPulse, LayoutGrid, Globe, Award, TrendingUp, MapPin, Image } from 'lucide-react'
 import ProjectCarousel from '@/components/ProjectCarousel'
 
 const categories = [
@@ -266,7 +266,7 @@ export default function Projects() {
                 viewport={{ once: true }}
                 className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full text-xs font-bold tracking-widest bg-primary-100 text-primary-700 uppercase"
               >
-                <Images className="w-3.5 h-3.5" />
+                <Image className="w-3.5 h-3.5" />
                 3D Renders Gallery
               </motion.span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent mb-3">
