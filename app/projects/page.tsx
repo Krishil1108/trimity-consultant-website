@@ -5,7 +5,8 @@ import { useState, useRef } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import { Building2, Home, Factory, HeartPulse, LayoutGrid, Globe, Award, TrendingUp, MapPin } from 'lucide-react'
+import { Building2, Home, Factory, HeartPulse, LayoutGrid, Globe, Award, TrendingUp, MapPin, Images } from 'lucide-react'
+import ProjectCarousel from '@/components/ProjectCarousel'
 
 const categories = [
   { label: 'All', icon: LayoutGrid },
@@ -65,6 +66,41 @@ const projects = [
     description: "Premium commercial office spaces fitted with state-of-the-art building services and smart infrastructure.",
     location: "Multiple Cities"
   }
+]
+
+const galleries = [
+  {
+    title: 'Bungalows',
+    images: Array.from({ length: 15 }, (_, i) => `projects/3d/bungalows/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
+  {
+    title: 'Commercial',
+    images: Array.from({ length: 8 }, (_, i) => `projects/3d/commercial/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
+  {
+    title: 'Hospital',
+    images: Array.from({ length: 8 }, (_, i) => `projects/3d/hospital/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
+  {
+    title: 'Hotel & Café',
+    images: [
+      ...Array.from({ length: 5 }, (_, i) => `projects/3d/hotel-cafe/${String(i + 1).padStart(2, '0')}.jpeg`),
+      'projects/3d/hotel-cafe/06.jpg',
+      'projects/3d/hotel-cafe/07.jpg',
+    ],
+  },
+  {
+    title: 'Mixed Use',
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/mixed-use/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
+  {
+    title: 'Residential',
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
+  {
+    title: 'Residential & Commercial',
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential-commercial/${String(i + 1).padStart(2, '0')}.jpg`),
+  },
 ]
 
 const stats = [
@@ -212,6 +248,55 @@ export default function Projects() {
                 </motion.div>
               ))}
             </AnimatePresence>
+          </motion.div>
+
+          {/* 3D Gallery Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 sm:mt-28"
+          >
+            {/* Section heading */}
+            <div className="text-center mb-10">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 rounded-full text-xs font-bold tracking-widest bg-primary-100 text-primary-700 uppercase"
+              >
+                <Images className="w-3.5 h-3.5" />
+                3D Renders Gallery
+              </motion.span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent mb-3">
+                Project Visualisations
+              </h2>
+              <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
+                High-quality 3D renders from our portfolio — browse each category below.
+              </p>
+            </div>
+
+            {/* Category carousels */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-10">
+              {galleries.map((gallery, idx) => (
+                <motion.div
+                  key={gallery.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="flex flex-col gap-3"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-gradient-to-b from-primary-500 to-primary-700" />
+                    <h3 className="text-base sm:text-lg font-bold text-gray-800">{gallery.title}</h3>
+                    <span className="ml-auto text-xs text-gray-400 font-medium">{gallery.images.length} renders</span>
+                  </div>
+                  <ProjectCarousel images={gallery.images} title={gallery.title} />
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Bottom CTA Banner */}
