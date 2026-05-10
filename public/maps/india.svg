@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" fill="none">
+  <defs>
+    <linearGradient id="indiaFill" x1="130" y1="40" x2="670" y2="840" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae6fd"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M335 62l114 16 50 62 43 12 45 55-21 59 36 63-42 68 29 81-35 80-46 34-24 80-45 55-61-48-22-93-68-61-10-64-53-60 22-89-44-66 46-56 32-100 54-57z"
+    fill="url(#indiaFill)"
+    stroke="#0369a1"
+    stroke-width="12"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M590 282l64 36 47 8 28 39-50 31-56-9-41-48 8-57z"
+    fill="url(#indiaFill)"
+    stroke="#0369a1"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -1,21 +1,15 @@
 'use client'
 
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import { Building2, Home, Factory, HeartPulse, LayoutGrid, Globe, Award, TrendingUp, MapPin, Compass, Image as ImageIcon } from 'lucide-react'
+import { Globe, Award, TrendingUp, MapPin, Compass, Image as ImageIcon } from 'lucide-react'
 import ProjectCarousel from '@/components/ProjectCarousel'
 
-const categories = [
-  { label: 'All', icon: LayoutGrid },
-  { label: 'Residential', icon: Home },
-  { label: 'Commercial', icon: Building2 },
-  { label: 'Industrial', icon: Factory },
-  { label: 'Healthcare & Hospitality', icon: HeartPulse },
-]
+const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Healthcare & Hospitality']
 
 type Project = {
   title: string
@@ -88,35 +82,35 @@ const projects: Project[] = [
 const galleries = [
   {
     title: 'Bungalows',
-    images: Array.from({ length: 15 }, (_, i) => `projects/3d/bungalows/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 15 }, (_, i) => `projects/3d/bungalows/${String(i + 1).padStart(2, '0')}.webp`),
   },
   {
     title: 'Commercial',
-    images: Array.from({ length: 8 }, (_, i) => `projects/3d/commercial/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 8 }, (_, i) => `projects/3d/commercial/${String(i + 1).padStart(2, '0')}.webp`),
   },
   {
     title: 'Hospital',
-    images: Array.from({ length: 8 }, (_, i) => `projects/3d/hospital/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 8 }, (_, i) => `projects/3d/hospital/${String(i + 1).padStart(2, '0')}.webp`),
   },
   {
     title: 'Hotel & Café',
     images: [
-      ...Array.from({ length: 5 }, (_, i) => `projects/3d/hotel-cafe/${String(i + 1).padStart(2, '0')}.jpeg`),
-      'projects/3d/hotel-cafe/06.jpg',
-      'projects/3d/hotel-cafe/07.jpg',
+      ...Array.from({ length: 5 }, (_, i) => `projects/3d/hotel-cafe/${String(i + 1).padStart(2, '0')}.webp`),
+      'projects/3d/hotel-cafe/06.webp',
+      'projects/3d/hotel-cafe/07.webp',
     ],
   },
   {
     title: 'Mixed Use',
-    images: Array.from({ length: 5 }, (_, i) => `projects/3d/mixed-use/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/mixed-use/${String(i + 1).padStart(2, '0')}.webp`),
   },
   {
     title: 'Residential',
-    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential/${String(i + 1).padStart(2, '0')}.webp`),
   },
   {
     title: 'Residential & Commercial',
-    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential-commercial/${String(i + 1).padStart(2, '0')}.jpg`),
+    images: Array.from({ length: 5 }, (_, i) => `projects/3d/residential-commercial/${String(i + 1).padStart(2, '0')}.webp`),
   },
 ]
 
@@ -127,20 +121,18 @@ const stats = [
 ]
 
 const cityCoordinates: Record<string, { x: number; y: number }> = {
-  Ahmedabad: { x: 34, y: 44 },
-  Surat: { x: 35, y: 52 },
-  Vadodara: { x: 39, y: 47 },
-  Mumbai: { x: 30, y: 60 },
-  Sanand: { x: 33, y: 46 },
-  Pune: { x: 36, y: 65 },
-  Bengaluru: { x: 45, y: 82 },
+  Ahmedabad: { x: 39, y: 38 },
+  Surat: { x: 37, y: 45 },
+  Vadodara: { x: 41, y: 40 },
+  Mumbai: { x: 35, y: 49 },
+  Sanand: { x: 38, y: 39 },
+  Pune: { x: 39, y: 55 },
+  Bengaluru: { x: 46, y: 69 },
 }
 
 export default function Projects() {
-  const [active, setActive] = useState('All')
   const [explorerSector, setExplorerSector] = useState('All')
   const [activeCity, setActiveCity] = useState<string | null>(null)
-  const filtered = active === 'All' ? projects : projects.filter(p => p.category === active)
   const explorerProjects = explorerSector === 'All' ? projects : projects.filter(p => p.category === explorerSector)
   const cityProjectCounts = explorerProjects.reduce<Record<string, number>>((acc, project) => {
     acc[project.city] = (acc[project.city] ?? 0) + 1
@@ -214,34 +206,6 @@ export default function Projects() {
             ))}
           </motion.div>
 
-          {/* Category Filter Tabs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14"
-          >
-            {categories.map(({ label, icon: Icon }) => (
-              <button
-                key={label}
-                onClick={() => setActive(label)}
-                className="relative px-4 py-2 rounded-full text-sm font-semibold transition-all flex items-center gap-1.5 focus:outline-none"
-              >
-                {active === label && (
-                  <motion.span
-                    layoutId="pill"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 shadow-lg"
-                    transition={{ type: 'spring', bounce: 0.25, duration: 0.45 }}
-                  />
-                )}
-                <span className={`relative z-10 flex items-center gap-1.5 ${active === label ? 'text-white' : 'text-gray-600 hover:text-primary-600'}`}>
-                  <Icon className="w-4 h-4" />
-                  {label}
-                </span>
-              </button>
-            ))}
-          </motion.div>
-
           {/* Project Explorer Map by City + Sector */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -262,7 +226,7 @@ export default function Projects() {
               </div>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {categories.map(({ label }) => (
+                {categories.map((label) => (
                   <button
                     key={label}
                     onClick={() => {
@@ -281,10 +245,16 @@ export default function Projects() {
               </div>
 
               <div className="relative h-[300px] sm:h-[340px] rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 via-blue-50 to-white overflow-hidden">
-                <div
-                  className="absolute inset-8 bg-gradient-to-br from-primary-200/60 to-primary-400/50 shadow-inner"
-                  style={{ clipPath: 'polygon(35% 6%, 56% 8%, 66% 16%, 74% 29%, 83% 36%, 79% 52%, 70% 65%, 63% 79%, 52% 92%, 44% 90%, 38% 74%, 31% 61%, 23% 52%, 26% 34%)' }}
-                />
+                <div className="absolute inset-5">
+                  <Image
+                    src="/maps/india.svg"
+                    alt="India map"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 100vw, 65vw"
+                    className="object-contain"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.07),transparent_70%)]" />
 
                 {availableCities.map(({ city, count }) => {
@@ -363,58 +333,6 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Projects Grid */}
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
-            <AnimatePresence mode="popLayout">
-              {filtered.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0, scale: 0.88, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.88, y: -20 }}
-                  transition={{ duration: 0.4, delay: index * 0.07 }}
-                  whileHover={{ y: -6 }}
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer bg-gray-100"
-                  style={{ willChange: 'transform' }}
-                >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      quality={70}
-                      priority={index < 3}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-
-                    {/* Base overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                    {/* Hover details overlay — slides up */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/95 via-primary-800/75 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-[400ms] ease-out flex flex-col justify-end p-5">
-                      <p className="text-white/85 text-sm mb-3 leading-relaxed">{project.description}</p>
-                      <div className="flex items-center gap-1.5 text-primary-300 text-xs font-semibold">
-                        <MapPin className="w-3.5 h-3.5" />
-                        {project.location}
-                      </div>
-                    </div>
-
-                    {/* Static title — fades out on hover */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 group-hover:opacity-0 transition-opacity duration-200">
-                      <span className="inline-block px-2.5 py-1 rounded-full bg-primary-500 text-white text-xs font-semibold mb-2">
-                        {project.category}
-                      </span>
-                      <h3 className="text-xl font-bold text-white mb-1.5">{project.title}</h3>
-                      <div className="w-10 h-0.5 bg-primary-400 rounded-full group-hover:w-full transition-all duration-500" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
           </motion.div>
 
           {/* 3D Gallery Section */}
