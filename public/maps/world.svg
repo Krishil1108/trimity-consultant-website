@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" fill="none">
+  <defs>
+    <linearGradient id="ocean" x1="120" y1="80" x2="1480" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a" />
+      <stop offset="1" stop-color="#082f49" />
+    </linearGradient>
+    <linearGradient id="land" x1="220" y1="120" x2="1330" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67e8f9" />
+      <stop offset="1" stop-color="#0ea5e9" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1120 410) rotate(100) scale(470 730)">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect x="20" y="20" width="1560" height="760" rx="40" fill="url(#ocean)" />
+  <rect x="20" y="20" width="1560" height="760" rx="40" fill="url(#glow)" />
+
+  <g opacity="0.22" stroke="#67e8f9" stroke-width="2">
+    <path d="M80 170H1520" />
+    <path d="M80 280H1520" />
+    <path d="M80 400H1520" />
+    <path d="M80 520H1520" />
+    <path d="M80 630H1520" />
+    <path d="M280 80V720" />
+    <path d="M520 80V720" />
+    <path d="M800 80V720" />
+    <path d="M1080 80V720" />
+    <path d="M1320 80V720" />
+  </g>
+
+  <g fill="url(#land)" stroke="#0e7490" stroke-width="8" stroke-linejoin="round">
+    <path d="M170 220L230 180L330 170L400 200L455 210L510 250L545 305L535 350L500 390L430 415L350 410L295 380L245 355L205 310L175 255Z" />
+    <path d="M500 430L560 420L610 455L635 505L620 560L575 600L530 590L505 555L495 495Z" />
+    <path d="M725 170L800 140L900 135L1010 150L1090 190L1160 210L1225 245L1255 300L1230 350L1170 385L1095 410L1020 400L980 375L920 350L845 340L790 315L745 260Z" />
+    <path d="M1030 430L1085 405L1160 410L1210 445L1260 475L1300 530L1290 585L1230 620L1150 615L1090 590L1050 545L1015 500L1005 460Z" />
+    <path d="M1340 500L1400 490L1450 510L1470 550L1455 590L1405 610L1360 595L1335 560Z" />
+    <path d="M640 160L675 145L710 155L730 185L710 215L675 220L645 200L630 180Z" />
+  </g>
+
+  <rect x="20" y="20" width="1560" height="760" rx="40" stroke="#22d3ee" stroke-opacity="0.35" stroke-width="6" />
+</svg>

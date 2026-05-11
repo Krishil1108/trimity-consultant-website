@@ -121,13 +121,13 @@ const stats = [
 ]
 
 const cityCoordinates: Record<string, { x: number; y: number }> = {
-  Ahmedabad: { x: 39, y: 38 },
-  Surat: { x: 37, y: 45 },
-  Vadodara: { x: 41, y: 40 },
-  Mumbai: { x: 35, y: 49 },
-  Sanand: { x: 38, y: 39 },
-  Pune: { x: 39, y: 55 },
-  Bengaluru: { x: 46, y: 69 },
+  Ahmedabad: { x: 65.5, y: 49 },
+  Surat: { x: 65.8, y: 51 },
+  Vadodara: { x: 66.6, y: 50 },
+  Mumbai: { x: 64.7, y: 53.2 },
+  Sanand: { x: 65.3, y: 49.3 },
+  Pune: { x: 66.2, y: 55 },
+  Bengaluru: { x: 68.8, y: 60.8 },
 }
 
 export default function Projects() {
@@ -244,18 +244,39 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="relative h-[300px] sm:h-[340px] rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 via-blue-50 to-white overflow-hidden">
-                <div className="absolute inset-5">
+              <div className="relative h-[320px] sm:h-[360px] rounded-2xl border border-primary-100 bg-gradient-to-br from-slate-900 via-sky-950 to-cyan-900 overflow-hidden">
+                <motion.div
+                  className="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-cyan-400/15 blur-3xl"
+                  animate={{ x: [0, 16, -8, 0], y: [0, -12, 8, 0], scale: [1, 1.08, 0.95, 1] }}
+                  transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <motion.div
+                  className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-sky-400/20 blur-3xl"
+                  animate={{ x: [0, -22, 10, 0], y: [0, 10, -14, 0], scale: [1, 0.92, 1.06, 1] }}
+                  transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <div
+                  className="absolute inset-0 opacity-35"
+                  style={{
+                    backgroundImage: 'linear-gradient(to right, rgba(103,232,249,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(103,232,249,0.15) 1px, transparent 1px)',
+                    backgroundSize: '56px 56px',
+                  }}
+                />
+                <motion.div
+                  className="absolute inset-4 sm:inset-6"
+                  animate={{ y: [0, -3, 0], scale: [1, 1.01, 1] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+                >
                   <Image
-                    src="/maps/india.svg"
-                    alt="India map"
+                    src="/maps/world.svg"
+                    alt="World map"
                     fill
                     priority
                     sizes="(max-width: 640px) 100vw, 65vw"
-                    className="object-contain"
+                    className="object-contain drop-shadow-[0_0_24px_rgba(34,211,238,0.38)]"
                   />
-                </div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.07),transparent_70%)]" />
+                </motion.div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.20),transparent_68%)]" />
 
                 {availableCities.map(({ city, count }) => {
                   const point = cityCoordinates[city] ?? { x: 50, y: 50 }
@@ -267,13 +288,17 @@ export default function Projects() {
                       className="absolute -translate-x-1/2 -translate-y-1/2 text-left"
                       style={{ left: `${point.x}%`, top: `${point.y}%` }}
                     >
-                      <span className={`absolute -inset-2 rounded-full ${isSelected ? 'animate-ping bg-primary-400/40' : 'bg-transparent'}`} />
+                      <motion.span
+                        className={`absolute -inset-3 rounded-full ${isSelected ? 'bg-cyan-300/35' : 'bg-cyan-200/18'}`}
+                        animate={{ scale: [1, 1.35, 1], opacity: [0.7, 0.15, 0.7] }}
+                        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+                      />
                       <span className={`relative inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] font-semibold shadow ${
-                        isSelected ? 'bg-primary-600 text-white' : 'bg-white text-gray-700 border border-gray-200'
+                        isSelected ? 'bg-cyan-500 text-slate-900' : 'bg-white/95 text-gray-700 border border-cyan-100'
                       }`}>
                         <MapPin className="w-3 h-3" />
                         {city}
-                        <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${isSelected ? 'bg-white/20' : 'bg-primary-100 text-primary-700'}`}>
+                        <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${isSelected ? 'bg-slate-900/20 text-slate-900' : 'bg-primary-100 text-primary-700'}`}>
                           {count}
                         </span>
                       </span>
