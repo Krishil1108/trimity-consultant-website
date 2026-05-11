@@ -244,24 +244,7 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="relative h-[320px] sm:h-[360px] rounded-2xl border border-primary-100 bg-gradient-to-br from-slate-900 via-sky-950 to-cyan-900 overflow-hidden">
-                <motion.div
-                  className="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-cyan-400/15 blur-3xl"
-                  animate={{ x: [0, 16, -8, 0], y: [0, -12, 8, 0], scale: [1, 1.08, 0.95, 1] }}
-                  transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <motion.div
-                  className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-sky-400/20 blur-3xl"
-                  animate={{ x: [0, -22, 10, 0], y: [0, 10, -14, 0], scale: [1, 0.92, 1.06, 1] }}
-                  transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <div
-                  className="absolute inset-0 opacity-35"
-                  style={{
-                    backgroundImage: 'linear-gradient(to right, rgba(103,232,249,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(103,232,249,0.15) 1px, transparent 1px)',
-                    backgroundSize: '56px 56px',
-                  }}
-                />
+              <div className="relative h-[320px] sm:h-[360px] rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-100 via-white to-slate-200 overflow-hidden">
                 <motion.div
                   className="absolute inset-4 sm:inset-6"
                   animate={{ y: [0, -3, 0], scale: [1, 1.01, 1] }}
@@ -273,10 +256,10 @@ export default function Projects() {
                     fill
                     priority
                     sizes="(max-width: 640px) 100vw, 65vw"
-                    className="object-contain drop-shadow-[0_0_24px_rgba(34,211,238,0.38)]"
+                    className="object-contain"
                   />
                 </motion.div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.20),transparent_68%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_70%)]" />
 
                 {availableCities.map(({ city, count }) => {
                   const point = cityCoordinates[city] ?? { x: 50, y: 50 }

@@ -1,57 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" fill="none">
   <defs>
-    <linearGradient id="ocean" x1="80" y1="40" x2="1520" y2="760" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0b1024"/>
-      <stop offset="1" stop-color="#0c3d5a"/>
-    </linearGradient>
-    <linearGradient id="land" x1="170" y1="100" x2="1380" y2="640" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#8ef9ff"/>
-      <stop offset="1" stop-color="#22b8f0"/>
+    <filter id="mapShadow" x="70" y="90" width="1460" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#22d3ee" flood-opacity="0.75"/>
+    </filter>
+    <linearGradient id="land" x1="190" y1="130" x2="1390" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#334155"/>
+      <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
   </defs>
 
-  <rect x="20" y="20" width="1560" height="760" rx="42" fill="url(#ocean)"/>
-
-  <g opacity="0.22" stroke="#7cecff" stroke-width="2">
-    <path d="M80 150H1520"/>
-    <path d="M80 250H1520"/>
-    <path d="M80 350H1520"/>
-    <path d="M80 450H1520"/>
-    <path d="M80 550H1520"/>
-    <path d="M80 650H1520"/>
-    <path d="M220 80V720"/>
-    <path d="M420 80V720"/>
-    <path d="M620 80V720"/>
-    <path d="M820 80V720"/>
-    <path d="M1020 80V720"/>
-    <path d="M1220 80V720"/>
-    <path d="M1420 80V720"/>
-  </g>
-
-  <g fill="url(#land)" stroke="#0284c7" stroke-width="8" stroke-linejoin="round">
+  <g filter="url(#mapShadow)" fill="url(#land)" stroke="#22d3ee" stroke-width="8" stroke-linejoin="round">
     <!-- North America -->
-    <path d="M145 220L220 175L315 160L405 178L470 212L500 252L485 302L442 338L360 365L278 360L215 332L175 290L152 252Z"/>
+    <path d="M150 250L230 198L330 186L418 206L485 242L516 288L500 340L452 378L364 406L284 398L222 368L180 324L156 284Z"/>
     <!-- Greenland -->
-    <path d="M515 108L560 88L612 93L642 125L630 155L586 172L540 161L508 136Z"/>
+    <path d="M520 126L564 104L618 108L646 138L634 168L590 184L544 174L512 150Z"/>
     <!-- South America -->
-    <path d="M438 392L492 380L550 407L585 456L574 518L533 574L486 618L440 604L411 550L400 487L408 430Z"/>
+    <path d="M430 420L492 408L552 440L588 490L576 556L536 618L490 660L444 646L414 594L404 526L412 462Z"/>
     <!-- Europe -->
-    <path d="M706 196L744 174L796 170L834 188L836 216L804 236L758 238L724 226Z"/>
+    <path d="M704 236L746 212L802 208L842 228L842 256L806 278L760 280L724 266Z"/>
     <!-- Africa -->
-    <path d="M772 270L832 261L894 289L925 348L914 430L860 508L802 548L754 522L726 462L724 392L740 325Z"/>
+    <path d="M770 304L834 294L898 324L930 386L918 472L862 552L802 594L752 566L724 498L724 420L740 354Z"/>
     <!-- Asia -->
-    <path d="M838 178L926 146L1034 138L1146 149L1268 184L1362 234L1410 302L1392 352L1336 385L1256 385L1184 364L1116 332L1064 300L1010 286L952 282L900 262L854 232Z"/>
-    <!-- India / SE Asia extension -->
-    <path d="M1012 318L1062 336L1090 374L1078 424L1042 454L998 442L982 396Z"/>
+    <path d="M838 216L930 184L1042 176L1160 190L1286 228L1386 284L1434 354L1416 406L1356 440L1270 440L1192 416L1122 384L1068 350L1008 336L948 332L896 312L850 276Z"/>
+    <!-- India / South-East Asia -->
+    <path d="M1008 364L1060 384L1088 424L1076 478L1038 508L996 496L978 446Z"/>
     <!-- Australia -->
-    <path d="M1262 500L1336 484L1416 505L1452 552L1438 606L1368 634L1296 616L1250 570Z"/>
+    <path d="M1262 548L1342 530L1426 552L1464 604L1448 662L1374 690L1298 670L1250 620Z"/>
     <!-- Japan -->
-    <path d="M1420 344L1442 328L1464 336L1466 358L1448 375L1428 370Z"/>
+    <path d="M1420 396L1444 378L1468 388L1470 412L1450 432L1428 426Z"/>
     <!-- Madagascar -->
-    <path d="M918 500L944 516L940 558L914 578L894 548Z"/>
+    <path d="M916 550L944 568L940 610L912 632L890 598Z"/>
   </g>
-
-  <path d="M530 686L1110 686L1042 720L598 720Z" fill="#8ef9ff" opacity="0.28"/>
-
-  <rect x="20" y="20" width="1560" height="760" rx="42" stroke="#45e3ff" stroke-opacity="0.35" stroke-width="6"/>
 </svg>
