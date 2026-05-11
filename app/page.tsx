@@ -10,6 +10,9 @@ import ParticleField from '@/components/ParticleField'
 import AnimatedGrid from '@/components/AnimatedGrid'
 import MouseParallax from '@/components/MouseParallax'
 import AIAssistant from '@/components/AIAssistant'
+import XRayRevealer from '@/components/XRayRevealer'
+import BuildingElevator from '@/components/BuildingElevator'
+import PipelineBackground from '@/components/PipelineBackground'
 
 // Animated count-up component
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
@@ -92,7 +95,8 @@ export default function Home() {
   ]
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-white overflow-x-hidden">
+    <main ref={containerRef} className="min-h-screen bg-white overflow-x-hidden relative">
+      <PipelineBackground />
       <Navigation />
 
       {/* Hero Section */}
@@ -348,8 +352,53 @@ export default function Home() {
       </div>
 
       {/* Wave Divider */}
+      <div className="relative h-10 overflow-hidden bg-gradient-to-b from-slate-900 to-slate-50">
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full" fill="#f8fafc">
+          <path d="M0,40 L0,20 Q360,0 720,20 Q1080,40 1440,20 L1440,40 Z" />
+        </svg>
+      </div>
+
+      {/* Interactive X-Ray Reveal Section */}
+      <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 overflow-hidden">
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.1),transparent_70%)]" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-14"
+          >
+            <span className="inline-block px-4 py-1.5 mb-4 rounded-full text-xs font-bold tracking-widest bg-blue-100 text-primary-700 uppercase">
+              The Engineering Behind The Beauty
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-primary-800 to-gray-900 bg-clip-text text-transparent mb-5">
+              Visualizing the Invisible
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+              Hover or swipe to reveal the intricate Mechanical, Electrical, and Plumbing systems that power our cutting-edge architectural structures.
+            </p>
+          </motion.div>
+
+          {/* XRay Revealer Component */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+             {/* Note: Using one of your existing images for this effect */}
+            <XRayRevealer imageSrc="/projects/3d/hospital/04.jpg" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Building Elevator Scroll Section */}
+      <BuildingElevator />
+
+      {/* Wave Divider */}
       <div className="relative h-10 overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800">
-        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" className="absolute bottom-0 w-full h-full" fill="white">
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" className="absolute top-0 w-full h-full rotate-180" fill="#f8fafc">
           <path d="M0,40 L0,20 Q360,0 720,20 Q1080,40 1440,20 L1440,40 Z" />
         </svg>
       </div>

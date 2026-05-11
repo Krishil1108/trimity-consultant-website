@@ -6,8 +6,9 @@ import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import ParticleField from '@/components/ParticleField'
-import { Globe, Award, TrendingUp, MapPin, Compass, Image as ImageIcon } from 'lucide-react'
+import { Globe, Award, TrendingUp, Compass, Image as ImageIcon } from 'lucide-react'
 import ProjectCarousel from '@/components/ProjectCarousel'
+import TiltCard from '@/components/TiltCard'
 
 const categories = ['All', 'Residential', 'Commercial', 'Industrial', 'Healthcare & Hospitality']
 
@@ -120,16 +121,6 @@ const stats = [
   { icon: TrendingUp, value: '18+', label: 'Years Experience' },
 ]
 
-const cityCoordinates: Record<string, { x: number; y: number }> = {
-  Ahmedabad: { x: 65.5, y: 49 },
-  Surat: { x: 65.8, y: 51 },
-  Vadodara: { x: 66.6, y: 50 },
-  Mumbai: { x: 64.7, y: 53.2 },
-  Sanand: { x: 65.3, y: 49.3 },
-  Pune: { x: 66.2, y: 55 },
-  Bengaluru: { x: 68.8, y: 60.8 },
-}
-
 export default function Projects() {
   const [explorerSector, setExplorerSector] = useState('All')
   const [activeCity, setActiveCity] = useState<string | null>(null)
@@ -206,26 +197,24 @@ export default function Projects() {
             ))}
           </motion.div>
 
-          {/* Project Explorer Map by City + Sector */}
+          {/* Project Showcase Grid */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mb-12 sm:mb-14 grid lg:grid-cols-[1.2fr_0.8fr] gap-5 sm:gap-6"
+            className="mb-12 sm:mb-14"
           >
-            <div className="rounded-3xl border border-primary-100 bg-white/90 backdrop-blur-sm shadow-lg p-4 sm:p-5">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                <div>
-                  <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
-                    <Compass className="w-5 h-5 text-primary-600" />
-                    Project Explorer
-                  </h2>
-                  <p className="text-sm text-gray-500">Explore live project distribution by city and sector.</p>
-                </div>
+            <div className="flex flex-col md:flex-row gap-6 mb-8 justify-between items-start md:items-center">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center gap-2">
+                  <Compass className="w-6 h-6 text-primary-600" />
+                  Project Showcase
+                </h2>
+                <p className="text-gray-500 mt-1">Filter and explore our recent works based on category and region.</p>
               </div>
-
-              <div className="flex flex-wrap gap-2 mb-4">
+              
+              <div className="flex flex-wrap gap-2">
                 {categories.map((label) => (
                   <button
                     key={label}
@@ -233,113 +222,95 @@ export default function Projects() {
                       setExplorerSector(label)
                       setActiveCity(null)
                     }}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                       explorerSector === label
-                        ? 'bg-primary-600 text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-700'
+                        ? 'bg-primary-600 text-white shadow-md'
+                        : 'bg-white border border-gray-200 text-gray-600 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-200'
                     }`}
                   >
                     {label}
                   </button>
                 ))}
               </div>
-
-              <div className="relative h-[320px] sm:h-[360px] rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-100 via-white to-slate-200 overflow-hidden">
-                <motion.div
-                  className="absolute inset-4 sm:inset-6"
-                  animate={{ y: [0, -3, 0], scale: [1, 1.01, 1] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <Image
-                    src="/maps/world.svg"
-                    alt="World map"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 100vw, 65vw"
-                    className="object-contain"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_70%)]" />
-
-                {availableCities.map(({ city, count }) => {
-                  const point = cityCoordinates[city] ?? { x: 50, y: 50 }
-                  const isSelected = selectedCity === city
-                  return (
-                    <button
-                      key={city}
-                      onClick={() => setActiveCity(city)}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 text-left"
-                      style={{ left: `${point.x}%`, top: `${point.y}%` }}
-                    >
-                      <motion.span
-                        className={`absolute -inset-3 rounded-full ${isSelected ? 'bg-cyan-300/35' : 'bg-cyan-200/18'}`}
-                        animate={{ scale: [1, 1.35, 1], opacity: [0.7, 0.15, 0.7] }}
-                        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-                      />
-                      <span className={`relative inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] font-semibold shadow ${
-                        isSelected ? 'bg-cyan-500 text-slate-900' : 'bg-white/95 text-gray-700 border border-cyan-100'
-                      }`}>
-                        <MapPin className="w-3 h-3" />
-                        {city}
-                        <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${isSelected ? 'bg-slate-900/20 text-slate-900' : 'bg-primary-100 text-primary-700'}`}>
-                          {count}
-                        </span>
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
             </div>
 
-            <div className="rounded-3xl border border-gray-100 bg-white shadow-lg p-4 sm:p-5">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-base sm:text-lg font-bold text-gray-900">City Breakdown</h3>
-                {selectedCity && (
-                  <button
-                    onClick={() => setActiveCity(null)}
-                    className="text-xs font-semibold text-primary-700 hover:text-primary-800"
-                  >
-                    Clear city
-                  </button>
-                )}
-              </div>
+            {/* City Filters */}
+            <div className="flex flex-wrap gap-2 mb-8 items-center bg-gray-50 p-3 rounded-2xl border border-gray-100">
+              <span className="text-sm font-semibold text-gray-500 px-2 uppercase tracking-wide">Locations:</span>
+              <button
+                onClick={() => setActiveCity(null)}
+                className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+                  !activeCity
+                    ? 'border-primary-600 bg-primary-50 text-primary-700'
+                    : 'border-transparent text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                All Cities
+              </button>
+              {availableCities.map(({ city, count }) => (
+                <button
+                  key={city}
+                  onClick={() => setActiveCity(city)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+                    activeCity === city
+                      ? 'border-primary-600 bg-primary-50 text-primary-700'
+                      : 'border-gray-200 bg-white text-gray-600 hover:border-primary-300'
+                  }`}
+                >
+                  {city} <span className="ml-1 opacity-60">({count})</span>
+                </button>
+              ))}
+            </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {availableCities.map(({ city, count }) => (
-                  <button
-                    key={city}
-                    onClick={() => setActiveCity(city)}
-                    className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
-                      selectedCity === city
-                        ? 'border-primary-600 bg-primary-50 text-primary-700'
-                        : 'border-gray-200 text-gray-600 hover:border-primary-300'
-                    }`}
-                  >
-                    {city} ({count})
-                  </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+               {explorerResults.map((project, idx) => (
+                  <TiltCard key={project.title}>
+                    <motion.div 
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: idx * 0.05 }}
+                      className="group flex flex-col h-full rounded-2xl bg-white overflow-hidden"
+                    >
+                      <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                          quality={80}
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-3 left-3 px-2.5 py-1 bg-white/95 backdrop-blur-sm rounded-md text-xs font-bold text-gray-800 shadow-sm transition-transform group-hover:-translate-y-1">
+                          {project.category}
+                        </div>
+                      </div>
+                      <div className="p-5 flex flex-col flex-grow">
+                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-700 transition-colors">{project.title}</h3>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">{project.description}</p>
+                        
+                        <div className="flex items-center text-xs text-gray-500 font-semibold uppercase tracking-wide pt-4 border-t border-gray-50">
+                          <Globe className="w-3.5 h-3.5 mr-1.5 text-primary-500" />
+                          {project.city}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </TiltCard>
                 ))}
-              </div>
-
-              <div className="space-y-2.5">
-                {explorerResults.slice(0, 4).map(project => (
-                  <div key={project.title} className="flex items-center gap-3 rounded-xl bg-gray-50 p-2.5">
-                    <div className="relative w-14 h-14 rounded-lg overflow-hidden bg-gray-200 shrink-0">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="56px"
-                        quality={65}
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-gray-900 truncate">{project.title}</p>
-                      <p className="text-xs text-gray-500">{project.city} • {project.category}</p>
-                    </div>
+                
+                {explorerResults.length === 0 && (
+                  <div className="col-span-full py-16 text-center bg-gray-50 rounded-2xl border border-gray-100 border-dashed">
+                    <Globe className="w-10 h-10 mx-auto text-gray-300 mb-3" />
+                    <h3 className="text-lg font-semibold text-gray-900">No projects found</h3>
+                    <p className="text-gray-500 mt-1">Try selecting a different category or location.</p>
+                    <button 
+                      onClick={() => { setExplorerSector('All'); setActiveCity(null); }}
+                      className="mt-4 px-4 py-2 text-sm font-semibold text-primary-600 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors"
+                    >
+                      Clear Filters
+                    </button>
                   </div>
-                ))}
-              </div>
+                )}
             </div>
           </motion.div>
 

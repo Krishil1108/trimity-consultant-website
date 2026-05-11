@@ -27,6 +27,13 @@ npm run dev
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Environment Variables
+
+Create `.env.local` from `.env.local.example` and set:
+
+- `RESEND_API_KEY` for contact form email sending
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` for Google Analytics (GA4)
+
 ## Project Structure
 
 ```
