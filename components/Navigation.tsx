@@ -58,10 +58,10 @@ export default function Navigation() {
               className="flex items-center cursor-pointer select-none"
             >
               <Image 
-                src="/logo.png" 
+                src="/logo-thumb.png" 
                 alt="Trimity Consultants Logo" 
-                width={428} 
-                height={100}
+                width={1183} 
+                height={256}
                 className="h-9 sm:h-11 md:h-12 w-auto object-contain max-h-full"
                 priority
               />
