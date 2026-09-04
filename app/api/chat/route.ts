@@ -35,14 +35,16 @@ export async function POST(request: NextRequest) {
     if (apiKey && process.env.GEMINI_API_KEY) {
       try {
         const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+          'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent',
           {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'X-goog-api-key': apiKey,
+            },
             body: JSON.stringify({
               contents: [
                 {
-                  role: 'user',
                   parts: [
                     { text: `${TRIMITY_SYSTEM_PROMPT}\n\nClient Question: ${message}` }
                   ]
@@ -58,13 +60,16 @@ export async function POST(request: NextRequest) {
           if (text) {
             return NextResponse.json({ reply: text })
           }
+        } else {
+          const errText = await response.text()
+          console.warn('Gemini API response error status:', response.status, errText)
         }
       } catch (err) {
         console.warn('Gemini API call error, using fallback context response:', err)
       }
     }
 
-    // Smart semantic fallback matching if API key is not configured
+    // Smart semantic fallback matching if API key call fails
     const lower = message.toLowerCase()
     let reply = ""
 
