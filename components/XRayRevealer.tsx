@@ -26,7 +26,7 @@ export default function XRayRevealer({ imageSrc }: { imageSrc: string }) {
 
   return (
     <div 
-      className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] rounded-[2rem] overflow-hidden cursor-ew-resize group shadow-2xl border border-gray-200 bg-gray-100"
+      className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] rounded-[2rem] overflow-hidden cursor-ew-resize group shadow-2xl border border-gray-200 bg-gray-100 touch-pan-y"
       ref={containerRef}
       onMouseMove={(e) => handleInteract(e.clientX)}
       onTouchMove={(e) => handleInteract(e.touches[0].clientX)}

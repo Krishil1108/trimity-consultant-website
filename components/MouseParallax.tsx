@@ -12,6 +12,8 @@ export default function MouseParallax({ children, strength = 20, className = '' 
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
+    if (window.innerWidth < 768) return // Skip on touch/mobile devices
+
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth - 0.5) * strength
       const y = (e.clientY / window.innerHeight - 0.5) * strength
