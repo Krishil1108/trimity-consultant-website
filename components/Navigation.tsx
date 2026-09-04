@@ -51,17 +51,18 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
-          <Link href="/" onClick={() => setIsOpen(false)}>
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center">
             <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-3 cursor-pointer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center cursor-pointer select-none"
             >
               <Image 
                 src="/logo.png" 
                 alt="Trimity Consultants Logo" 
-                width={400} 
-                height={150}
-                className="h-16 sm:h-20 md:h-24 w-auto"
+                width={428} 
+                height={100}
+                className="h-9 sm:h-11 md:h-12 w-auto object-contain max-h-full"
                 priority
               />
             </motion.div>
