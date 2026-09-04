@@ -34,6 +34,8 @@ export default function UnifiedBackground() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    const isMobile = window.innerWidth < 768
+
     const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -41,21 +43,21 @@ export default function UnifiedBackground() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Initialize 40 ambient node particles
-    const particleCount = 40
+    // Adapt particle count to viewport width for mobile performance
+    const particleCount = isMobile ? 18 : 40
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * (isMobile ? 0.25 : 0.4),
+      vy: (Math.random() - 0.5) * (isMobile ? 0.25 : 0.4),
       size: Math.random() * 2 + 1,
       opacity: Math.random() * 0.25 + 0.15,
     }))
 
-    // Initialize 4 MEP engineering pulse streams (Water, Electrical, HVAC, Fire Safety)
+    // Initialize MEP engineering pulse streams (Water, Electrical, HVAC, Fire Safety)
     pulsesRef.current = [
-      { axis: 'v', posRatio: 0.04, progress: 0, speed: 0.0018, color: 'rgba(34, 211, 238, 0.6)' }, // Cyan Water
-      { axis: 'v', posRatio: 0.96, progress: 0.5, speed: 0.0015, color: 'rgba(251, 191, 36, 0.6)' }, // Amber Electrical
+      { axis: 'v', posRatio: isMobile ? 0.02 : 0.04, progress: 0, speed: 0.0018, color: 'rgba(34, 211, 238, 0.6)' }, // Cyan Water
+      { axis: 'v', posRatio: isMobile ? 0.98 : 0.96, progress: 0.5, speed: 0.0015, color: 'rgba(251, 191, 36, 0.6)' }, // Amber Electrical
       { axis: 'h', posRatio: 0.30, progress: 0.2, speed: 0.0012, color: 'rgba(52, 211, 153, 0.6)' }, // Emerald HVAC
       { axis: 'h', posRatio: 0.72, progress: 0.7, speed: 0.0014, color: 'rgba(248, 113, 113, 0.6)' }, // Red Fire Safety
     ]
