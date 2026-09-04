@@ -8,7 +8,6 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import UnifiedBackground from '@/components/UnifiedBackground'
 import MouseParallax from '@/components/MouseParallax'
-import AIAssistant from '@/components/AIAssistant'
 import XRayRevealer from '@/components/XRayRevealer'
 import BuildingElevator from '@/components/BuildingElevator'
 
@@ -871,8 +870,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      <AIAssistant />
 
       <Footer />
 
