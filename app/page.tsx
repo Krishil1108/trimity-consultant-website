@@ -6,13 +6,11 @@ import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import ParticleField from '@/components/ParticleField'
-import AnimatedGrid from '@/components/AnimatedGrid'
+import UnifiedBackground from '@/components/UnifiedBackground'
 import MouseParallax from '@/components/MouseParallax'
 import AIAssistant from '@/components/AIAssistant'
 import XRayRevealer from '@/components/XRayRevealer'
 import BuildingElevator from '@/components/BuildingElevator'
-import PipelineBackground from '@/components/PipelineBackground'
 
 // Animated count-up component
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
@@ -96,15 +94,13 @@ export default function Home() {
 
   return (
     <main ref={containerRef} className="min-h-screen bg-white overflow-x-hidden relative">
-      <PipelineBackground />
+      <UnifiedBackground />
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 w-full h-full">
-          <AnimatedGrid />
-          <ParticleField />
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-primary-50"
             animate={{

@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -43,13 +43,28 @@ export default function AIAssistant() {
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, thinking])
 
-  const respond = (q: string) => {
+  const respond = async (q: string) => {
     if (thinking || !q.trim()) return
+    const userQuery = q.trim()
     setInput('')
-    setMessages(m => [...m, { role: 'user', text: q.trim() }])
+    setMessages(m => [...m, { role: 'user', text: userQuery }])
     setThinking(true)
-    const ans = KB[q.trim()] ?? 'Please reach us at **+91 96624 74538** or visit our Contact page for detailed information.'
-    setTimeout(() => { setThinking(false); setMessages(m => [...m, { role: 'ai', text: ans, typed: true }]) }, 800)
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userQuery }),
+      })
+      const data = await res.json()
+      const ans = data.reply || KB[userQuery] || 'Please reach us at **+91 96624 74538** or email **info@trimity.in** for assistance.'
+      setThinking(false)
+      setMessages(m => [...m, { role: 'ai', text: ans, typed: true }])
+    } catch {
+      const ans = KB[userQuery] || 'Please reach us at **+91 96624 74538** or visit our Contact page for detailed information.'
+      setThinking(false)
+      setMessages(m => [...m, { role: 'ai', text: ans, typed: true }])
+    }
   }
 
   return (
